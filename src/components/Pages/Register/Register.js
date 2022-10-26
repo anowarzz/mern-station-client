@@ -16,11 +16,13 @@ const Register = () => {
               <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-black shadow-sm text-sm">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
+                  width="15"
+                  height="15"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="w-6 h-6"
+               
                 >
                   <path
                     stroke-linecap="round"
@@ -43,11 +45,13 @@ const Register = () => {
               <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-black shadow-sm text-sm">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
+                  width="15"
+                  height="15"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="w-6 h-6"
+              
                 >
                   <path
                     stroke-linecap="round"

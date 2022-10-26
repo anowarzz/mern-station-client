@@ -24,7 +24,7 @@ const handleTheme = () => {
     return (
 
 
-<Navbar className="bg-slate-300"  fluid={true} rounded={true}>
+<Navbar className="bg-slate-200"  fluid={true} rounded={true}>
 
 <Navbar.Brand>
  <Link>
@@ -40,6 +40,8 @@ const handleTheme = () => {
 
   <Navbar.Toggle />
   <Navbar.Collapse>
+
+ <NavLink className='text-lg py-1' to = "/"> Home </NavLink>
 
  <NavLink className='text-lg py-1' to = "/courses"> Courses </NavLink>
 
