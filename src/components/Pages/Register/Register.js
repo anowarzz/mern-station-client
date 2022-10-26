@@ -12,9 +12,8 @@ const Register = () => {
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >
           <div class="flex flex-col mb-2">
-
             <div class="flex relative mb-4 ">
-              <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
+              <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-black shadow-sm text-sm">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -35,13 +34,13 @@ const Register = () => {
                 type="Name"
                 id="name"
                 class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-                placeholder="Your Name"
+                placeholder="Enter Your Name"
                 required
               />
             </div>
-
+   
             <div class="flex relative mb-4 ">
-              <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
+              <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-black shadow-sm text-sm">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -64,13 +63,14 @@ const Register = () => {
               </span>
 
               <input
-                type="email"
-                id="email"
+                type="photo"
+                id="photo"
                 class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-                placeholder="Photo URL"
-                required
+                placeholder="Enter Your Photo URL"
+    
               />
             </div>
+           
             <div class="flex relative ">
               <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                 <svg
@@ -88,14 +88,15 @@ const Register = () => {
                 type="email"
                 id="email"
                 class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black  shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-                placeholder="Your email"
+                placeholder="Type Your Email"
                 required
               />
             </div>
           </div>
 
-     
-            <div class="flex relative ">
+          
+        
+            <div class="flex relative">
               <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                 <svg
                   width="15"
@@ -110,26 +111,44 @@ const Register = () => {
               <input
                 type="password"
                 id="password"
-                class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-                placeholder="Your password"
+                class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
+                placeholder="Type Your Password"
+                required
+              />
+        
+          </div>
+        
+            <div class="flex relative">
+              <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
+                <svg
+                  width="15"
+                  height="15"
+                  fill="currentColor"
+                  viewBox="0 0 1792 1792"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M1376 768q40 0 68 28t28 68v576q0 40-28 68t-68 28h-960q-40 0-68-28t-28-68v-576q0-40 28-68t68-28h32v-320q0-185 131.5-316.5t316.5-131.5 316.5 131.5 131.5 316.5q0 26-19 45t-45 19h-64q-26 0-45-19t-19-45q0-106-75-181t-181-75-181 75-75 181v320h736z"></path>
+                </svg>
+              </span>
+              <input
+                type="password"
+                id="password"
+                class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
+                placeholder="Confirm Your Password"
                 required
               />
         
           </div>
 
-          <div className="flex justify-end  text-gray-600">
-            <a rel="noopener noreferrer" href="/">
-              Forgot Password?
-            </a>
-          </div>
-          <button className="block w-full p-3 text-center rounded-sm text-white bg-black">
-            Login
+          
+          <button className=" block w-full p-3 text-center rounded-sm text-white bg-black">
+            Register
           </button>
         </form>
 
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
-          <p className="px-3  text-gray-600">Login with social accounts</p>
+          <p className="px-3  text-gray-600">Register With Social Accounts</p>
           <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
         </div>
         <div className="flex justify-center space-x-4">
@@ -164,17 +183,7 @@ const Register = () => {
             </svg>
           </button>
         </div>
-        <p className="text-center sm:px-6 text-gray-600">
-          Don't have an account?
-          <Link
-            rel="noopener noreferrer"
-            to="/register"
-            className=" text-gray-800 m-2 font-bold"
-          >
-            {" "}
-            Register{" "}
-          </Link>
-        </p>
+       
       </div>
     </div>
   );
