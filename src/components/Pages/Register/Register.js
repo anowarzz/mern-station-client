@@ -1,6 +1,8 @@
+import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+
 
 
 const Register = () => {
@@ -10,20 +12,15 @@ const Register = () => {
         photo:"",
         email:"",
         password:"",
-        confirm:""
-        
-        
-    })
+        confirm:"" 
+          })
+
+    const [error, setError] = useState('');
+
 
     const handleCreateUser = (event) => {
 
-        toast.success("button clicked")
-        event.preventDefault();
-
-        const form = event.target;
-        const name = form.name.value;
-        console.log(name);
-        
+      
         
     }
 
@@ -43,24 +40,53 @@ const Register = () => {
     const handleEmailChange = (event) => {
 
         const email = event.target.value;
-        setUserInfo({...userInfo, email: email})
-    }
+
+        if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+           setError("Please Provide a Valid Email")
+            setUserInfo({...userInfo, email: email})
+        }
+           else{
+               setError("");
+               setUserInfo({...userInfo, email: email})
+        }
+            
+            
+
+        }
+
 
 
     const handlePassChange = (event) => {
         const password = event.target.value;
-        console.log(password.length);
         
-
-        if(password < 6){
-            return alert("password sholde");
+        if(password.length < 6){
+             setError("Password Must Be 6 Character or More");
+             setUserInfo({...userInfo, password: password})
         }
-        setUserInfo({...userInfo, password:password})
+        else{
+            setError("")
+            setUserInfo({...userInfo, password:password})
+        }
+
+
+
+        
     }
 
+
     const handleConfirmPassChange = (event) => {
+        const password = userInfo.password
         const confirm = event.target.value;
-        setUserInfo({...userInfo, confirm: confirm})
+
+        if(confirm !== password){
+            
+            setError("Your Password Did Not Match")
+            setUserInfo({...userInfo, confirm: confirm})
+        }
+        else{
+            setError("")
+            setUserInfo({...userInfo, confirm: confirm})
+        }
     }
 
 
@@ -182,9 +208,8 @@ const Register = () => {
                 placeholder="Type Your Password"
                 required
               />
-        
           </div>
-        
+              
             <div className="flex relative">
               <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                 <svg
@@ -212,6 +237,13 @@ const Register = () => {
             Register
           </button>
         </form>
+
+        {
+            error && <p className="text-red-500 text-lg font-semibold text-center">{error}
+            <span className="pl-1"> <FontAwesomeIcon icon={faTriangleExclamation}/>  
+            </span> 
+            </p> 
+            }
 
         <div className="flex items-center pt-4 space-x-1">
 		<div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
@@ -242,8 +274,9 @@ const Register = () => {
 	</div>
        
       </div>
+   
     </div>
   );
-};
 
+  }
 export default Register;
