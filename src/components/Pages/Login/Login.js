@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
-       <div className='flex justify-center items-center py-8'>
+       <div className='flex justify-center items-center py-6'>
          <div className="w-[90%] mx-auto max-w-md p-8 space-y-3 rounded  text-black shadow-2xl bg-slate-300">
 	<h1 className="text-2xl font-bold text-center mt-3 mb-6">Login</h1>
 	<form  action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
@@ -45,7 +45,7 @@ const Login = () => {
 
 	<div className="flex items-center pt-4 space-x-1">
 		<div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
-		<p className="px-3  ">Login with social accounts</p>
+		<p className="px-3  ">Login With Social Accounts</p>
 		<div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
 	</div>
 	<div className="flex justify-center space-x-4">
@@ -70,7 +70,7 @@ const Login = () => {
 		</button>
 	</div>
 	<p className="text-center sm:px-6 text-gray-600">Don't have an account?
-		<Link rel="noopener noreferrer" to ="/register" className=" text-gray-800 m-2 font-bold"> Register </Link>
+		<Link rel="noopener noreferrer" to ="/register" className=" text-gray-800 m-2"> <button className='btn bg-black text-white px-2 py-1'>Register </button></Link>
 	</p> 
 </div>
        </div>

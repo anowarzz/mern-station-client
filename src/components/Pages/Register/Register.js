@@ -1,4 +1,4 @@
-import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEyeSlash, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useState } from "react";
@@ -17,6 +17,13 @@ const Register = () => {
 
     const [error, setError] = useState('');
 
+    const [passwordShown,  setPasswordShown] = useState(false)
+
+
+    const handlePassShowToogle = () => {
+        setPasswordShown(!passwordShown)
+    }
+
 
     const handleCreateUser = (event) => {
 
@@ -30,7 +37,7 @@ const Register = () => {
         setUserInfo({...userInfo, name: name})
       
     }
-    
+
     const handlePhotoChange = (event) => {
         const photo = event.target.value;
         setUserInfo({...userInfo, photo: photo})
@@ -49,9 +56,6 @@ const Register = () => {
                setError("");
                setUserInfo({...userInfo, email: email})
         }
-            
-            
-
         }
 
 
@@ -67,10 +71,6 @@ const Register = () => {
             setError("")
             setUserInfo({...userInfo, password:password})
         }
-
-
-
-        
     }
 
 
@@ -93,7 +93,7 @@ const Register = () => {
 
 
   return (
-    <div className="flex justify-center items-center py-8">
+    <div className="flex justify-center items-center py-6">
       
       <div className="w-[90%] mx-auto max-w-md p-8 space-y-3 rounded-xl  text-black shadow-2xl bg-slate-300">
         <h1 className="text-2xl font-bold text-center mt-3 mb-6">Register</h1>
@@ -164,7 +164,7 @@ const Register = () => {
               />
             </div>
            
-            <div className="flex relative ">
+            <div className="flex relative">
               <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                 <svg
                   width="15"
@@ -202,12 +202,18 @@ const Register = () => {
                 </svg>
               </span>
               <input
-                type="password" name="password" value={userInfo.password} onChange={handlePassChange}
+                type={passwordShown ? "text" : "password"} name="password" value={userInfo.password} onChange={handlePassChange}
                 id="password"
                 className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                 placeholder="Type Your Password"
                 required
-              />
+              /> <span onClick={handlePassShowToogle} className="pt-2 absolute right-1 cursor-pointer">
+              
+                    {
+                        passwordShown ? <FontAwesomeIcon icon={faEyeSlash}/> : <FontAwesomeIcon icon={faEye}/> 
+                    }
+        
+                    </span>
           </div>
               
             <div className="flex relative">
@@ -223,13 +229,19 @@ const Register = () => {
                 </svg>
               </span>
               <input
-                type="password" name="confirm" value={userInfo.confirm} onChange={handleConfirmPassChange}
+                type={passwordShown ? "text" : "password"}  name="confirm" value={userInfo.confirm} onChange={handleConfirmPassChange}
                 id="confirm"
                 className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                 placeholder="Confirm Your Password"
                 required
               />
-        
+        <span onClick={handlePassShowToogle} className="pt-2 absolute right-1 cursor-pointer">
+      
+                  {
+                   passwordShown ? <FontAwesomeIcon icon={faEyeSlash}/> : <FontAwesomeIcon icon={faEye}/> 
+                    }
+              
+                </span>
           </div>
 
           
