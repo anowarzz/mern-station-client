@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
-       <div className='flex justify-center items-center mt-8'>
-         <div className="w-[90%] mx-auto max-w-md p-8 space-y-3 rounded-xl  text-black border-2 shadow-xl bg-gray-200">
+       <div className='flex justify-center items-center py-8'>
+         <div className="w-[90%] mx-auto max-w-md p-8 space-y-3 rounded-xl  text-black shadow-2xl bg-slate-300">
 	<h1 className="text-2xl font-bold text-center mt-3 mb-6">Login</h1>
 	<form novalidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
 
@@ -22,7 +22,7 @@ const Login = () => {
                     <input type="email" id="email" class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent" placeholder="Your email" required/>
                     </div>
                 </div>
-                <div class="flex flex-col mb-6">
+                <div class="flex flex-col pb-6">
                     <div class="flex relative ">
                         <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                             <svg width="15" height="15" fill="currentColor" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +39,7 @@ const Login = () => {
 		</div>
 		<button className="block w-full p-3 text-center rounded-sm text-white bg-black">Login</button>
 	</form>
-    
+
 	<div className="flex items-center pt-4 space-x-1">
 		<div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
 		<p className="px-3  text-gray-600">Login with social accounts</p>

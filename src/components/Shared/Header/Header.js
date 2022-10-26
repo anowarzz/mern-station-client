@@ -24,7 +24,7 @@ const handleTheme = () => {
     return (
 
 
-<Navbar className="bg-zinc-200"  fluid={true} rounded={true}>
+<Navbar className="bg-slate-300"  fluid={true} rounded={true}>
 
 <Navbar.Brand>
  <Link>
