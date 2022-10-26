@@ -75,7 +75,7 @@ const {creteNewUser} = useContext(AuthContext)
 
         if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
            setErrors({...errors, email: "Please Provide a Valid Email"})
-            setUserInfo({...userInfo, email: ""})
+            setUserInfo({...userInfo, email: email})
         }
            else{
                setErrors({...errors, email:""});
@@ -90,7 +90,7 @@ const {creteNewUser} = useContext(AuthContext)
         
         if(password.length < 6){
              setErrors({...errors, password: "Password Must Be 6 Character or More"});
-             setUserInfo({...userInfo, password: ""})
+             setUserInfo({...userInfo, password: password})
         }
         else{
             setErrors("")
