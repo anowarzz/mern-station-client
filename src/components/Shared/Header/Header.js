@@ -27,13 +27,14 @@ const handleTheme = () => {
 <Navbar className="bg-zinc-200"  fluid={true} rounded={true}>
 
 <Navbar.Brand>
-  <img
+ <Link>
+ <img
     src={logo}
     className="mr-3 md:h-20 sm:h-10  w-20"
     alt="Mern Stack Logo"
-  />
-  <span className="self-center whitespace-nowrap sm:text-3xl font-oswald text-blue-600 text-xl">
-    <Link to="/">Mern Station</Link>
+  /></Link>
+  <span className="self-center whitespace-nowrap sm:text-3xl font-oswald text-blue-600 text-xl font-bold">
+    <Link to="/"><span className="text-black">MERN</span> Station</Link>
   </span>
   </Navbar.Brand>
 
