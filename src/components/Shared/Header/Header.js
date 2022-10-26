@@ -3,9 +3,7 @@ import React from 'react';
 const Header = () => {
     return (
         <div>
-            h3.text-3xl{
-                This is the header section
-            }
+           <h3 className="text-3xl">This is the heade section</h3>
         </div>
     );
 };
