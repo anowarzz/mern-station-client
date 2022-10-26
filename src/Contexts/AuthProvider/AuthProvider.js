@@ -20,7 +20,7 @@ const createNewUser = (email, password) =>{
     return createUserWithEmailAndPassword(auth, email, password)
 }
 
-const authInfo = {user, loading}
+const authInfo = {user, loading, createNewUser}
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

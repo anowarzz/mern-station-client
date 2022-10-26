@@ -1,13 +1,17 @@
 import { faEye, faEyeSlash, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 
 
 const Register = () => {
 
-    const [userInfo, setUserInfo] = useState({
+const {creteNewUser} = useContext(AuthContext)
+
+
+  const [userInfo, setUserInfo] = useState({
         name:"",
         photo:"",
         email:"",
@@ -15,27 +19,49 @@ const Register = () => {
         confirm:"" 
           })
 
-    const [error, setError] = useState('');
-
+    const [errors, setErrors] = useState({
+        email:"",
+        password: ""
+    });
     const [passwordShown,  setPasswordShown] = useState(false)
+
+
+
+    const handleCreateUser = (event) => {
+        event.preventDefault();
+        const form = event.target
+
+        const email = userInfo.email;
+        const password = userInfo.password;
+
+        creteNewUser(email, password)
+        .then(result => {
+            const user = result.user
+            console.log(user);
+            form.reset();
+            setErrors("")
+        })
+        .catch(error => {
+            console.log(error);
+            setErrors(error.message)
+            
+        })
+         
+    }
+
+
+
+
+
 
 
     const handlePassShowToogle = () => {
         setPasswordShown(!passwordShown)
     }
 
-
-    const handleCreateUser = (event) => {
-
-      
-        
-    }
-
-
     const handleNameChange = (event) => {
         const name = event.target.value;
-        setUserInfo({...userInfo, name: name})
-      
+        setUserInfo({...userInfo, name: name})  
     }
 
     const handlePhotoChange = (event) => {
@@ -45,15 +71,14 @@ const Register = () => {
 
 
     const handleEmailChange = (event) => {
-
         const email = event.target.value;
 
         if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
-           setError("Please Provide a Valid Email")
-            setUserInfo({...userInfo, email: email})
+           setErrors({...errors, email: "Please Provide a Valid Email"})
+            setUserInfo({...userInfo, email: ""})
         }
            else{
-               setError("");
+               setErrors({...errors, email:""});
                setUserInfo({...userInfo, email: email})
         }
         }
@@ -64,14 +89,15 @@ const Register = () => {
         const password = event.target.value;
         
         if(password.length < 6){
-             setError("Password Must Be 6 Character or More");
-             setUserInfo({...userInfo, password: password})
+             setErrors({...errors, password: "Password Must Be 6 Character or More"});
+             setUserInfo({...userInfo, password: ""})
         }
         else{
-            setError("")
+            setErrors("")
             setUserInfo({...userInfo, password:password})
         }
     }
+    console.log(userInfo.email);
 
 
     const handleConfirmPassChange = (event) => {
@@ -80,11 +106,11 @@ const Register = () => {
 
         if(confirm !== password){
             
-            setError("Your Password Did Not Match")
+            setErrors({...errors, password: "Your Password Did Not Match"})
             setUserInfo({...userInfo, confirm: confirm})
         }
         else{
-            setError("")
+            setErrors("")
             setUserInfo({...userInfo, confirm: confirm})
         }
     }
@@ -210,7 +236,8 @@ const Register = () => {
               /> <span onClick={handlePassShowToogle} className="pt-2 absolute right-1 cursor-pointer">
               
                     {
-                        passwordShown ? <FontAwesomeIcon icon={faEyeSlash}/> : <FontAwesomeIcon icon={faEye}/> 
+                        passwordShown ?   <FontAwesomeIcon icon={faEye}/>  :
+                        <FontAwesomeIcon icon={faEyeSlash}/>
                     }
         
                     </span>
@@ -238,7 +265,8 @@ const Register = () => {
         <span onClick={handlePassShowToogle} className="pt-2 absolute right-1 cursor-pointer">
       
                   {
-                   passwordShown ? <FontAwesomeIcon icon={faEyeSlash}/> : <FontAwesomeIcon icon={faEye}/> 
+                   passwordShown ?  <FontAwesomeIcon icon={faEye}/> : 
+                   <FontAwesomeIcon icon={faEyeSlash}/> 
                     }
               
                 </span>
@@ -250,16 +278,25 @@ const Register = () => {
           </button>
         </form>
 
+       <>
+       
+       
+          {  errors?.email && <p className="text-red-500 text-lg font-semibold text-center">{errors.email}
+            <span className="pl-1"> <FontAwesomeIcon icon={faTriangleExclamation}/>  
+            </span> 
+            </p> }
+            
+            
         {
-            error && <p className="text-red-500 text-lg font-semibold text-center">{error}
+            errors?.password && <p className="text-red-500 text-lg font-semibold text-center">{errors.password}
             <span className="pl-1"> <FontAwesomeIcon icon={faTriangleExclamation}/>  
             </span> 
             </p> 
-            }
+            }</>
 
         <div className="flex items-center pt-4 space-x-1">
 		<div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
-		<p className="px-3 ">Register with social accounts</p>
+		<p className="px-3 ">Register With Social Accounts</p>
 		<div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
 	</div>
 	<div className="flex justify-center space-x-4">

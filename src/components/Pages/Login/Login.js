@@ -1,3 +1,5 @@
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -8,13 +10,19 @@ const  [loginInfo, setLoginInfo] = useState({
     email:"",
     password: ""
 })    
-
+const [passwordShown,  setPasswordShown] = useState(false)
 const [error, setError] = useState('')
 
+const handlePassShowToogle = () => {
+    setPasswordShown(!passwordShown)
+}
 
 
-const handleLogin = () => {
 
+const handleUserLogin = (event) => {
+event.preventDefault();
+
+console.log(loginInfo.email, loginInfo.password);
 
 
 }
@@ -37,7 +45,7 @@ const handleLoginPassword = (event) => {
        <div className='flex justify-center items-center py-6'>
          <div className="w-[90%] mx-auto max-w-md p-8 space-y-3 rounded  text-black shadow-2xl bg-slate-300">
 	<h1 className="text-2xl font-bold text-center mt-3 mb-6">Login</h1>
-	<form  action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
+	<form  onSubmit={handleUserLogin} action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
 
     <div className="flex flex-col mb-2">
     <label htmlFor="email" className='text-gray-700 mb-2'>Email</label>
@@ -50,7 +58,7 @@ const handleLoginPassword = (event) => {
                         </svg>
                     </span>
                   
-                    <input type="email" id="email" name='email' className="rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent" placeholder="Email" required/>
+                    <input type="email" onChange={handleLoginEmail} value={loginInfo.email} id="email" name='email' className="rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent" placeholder="Your Email" required/>
                     </div>
                 </div>
 
@@ -64,8 +72,17 @@ const handleLoginPassword = (event) => {
                                 </path>
                             </svg>
                         </span>
-                        <input type="password" name='password' onChange={handleEmailChange}  id="password" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent" placeholder="Your password" required/>
+                        <input type={passwordShown ? "text" : "password"} name='password' onChange={handleLoginPassword} value={loginInfo.password}  id="password" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent" placeholder="Your Password" required/>
+                        <span onClick={handlePassShowToogle} className="pt-2 absolute right-1 cursor-pointer ">
+              
+                    {
+                        passwordShown ?  <FontAwesomeIcon icon={faEye}/> :
+                        <FontAwesomeIcon icon={faEyeSlash}/>
+                    }
+        
+                    </span>
                         </div>
+                        
                     </div>
 
 			<div className="flex justify-end  text-gray-800">
