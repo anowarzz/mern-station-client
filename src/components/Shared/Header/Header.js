@@ -2,14 +2,19 @@ import { faMoon, faSun} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Navbar } from "flowbite-react";
 import React from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/mern-logo.png";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 
 
 const Header = () => {
-  
+
+const {user} = useContext(AuthContext)
+console.log(user);
+
 const [dark, setDark] = useState(false);
 
 const handleTheme = () => {
@@ -43,7 +48,7 @@ const handleTheme = () => {
 
   <NavLink className='text-lg py-1' to ='blog'> Blog </NavLink>
 
-  <NavLink onClick={handleTheme}  className='text-lg py-1 border border-dotted border-black  px-2 '>
+  <NavLink onClick={handleTheme}  className='text-lg py-1 md:border border-dotted border-black  px-2 '>
   {
     dark ? <p > Light <FontAwesomeIcon icon={faSun} /> </p>
     : <p className=""> Dark <FontAwesomeIcon  icon={faMoon}/></p>
@@ -53,9 +58,16 @@ const handleTheme = () => {
   </NavLink>
 
  <NavLink to="/login" className='text-lg'>
-  <button className="bg-black text-white py-1 px-6">
+  {
+  user?.uid ?  <>
+  {user.displayName}</> 
+  :
+    <button className="bg-black text-white py-1 px-6">
   Login
  </button>
+  }
+  
+
   </NavLink>
 
 </Navbar.Collapse>
