@@ -40,12 +40,13 @@ const Home = () => {
 
             <div className="flex items-center">
               <Link to="/courses">
-                <button className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide  transition duration-200  shadow-md bg-black text-white  focus:shadow-outline  hover:bg-teal-400 hover:text-black focus:outline-none">
+                <button className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide  transition duration-200  shadow-md bg-black text-white  focus:shadow-outline  hover:bg-teal-400 hover:text-black focus:outline">
                   View Courses
                 </button>
               </Link>
+              
               <Link to="/register">
-                <button className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 shadow-md bg-black btn hover:bg-teal-400 hover:text-black focus:shadow-outline focus:outline-none">
+                <button className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 shadow-md bg-black btn hover:bg-teal-400 hover:text-black focus:shadow-outline focus:outline">
                   Register
                 </button>
               </Link>
