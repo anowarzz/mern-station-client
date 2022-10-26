@@ -1,28 +1,48 @@
-
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
-       <div className='flex justify-center items-center my-8'>
-         <div className="w-full max-w-md p-8 space-y-3 rounded-xl  text-black border-2 shadow-xl">
-	<h1 className="text-2xl font-bold text-center">Login</h1>
+       <div className='flex justify-center items-center mt-8'>
+         <div className="w-[90%] mx-auto max-w-md p-8 space-y-3 rounded-xl  text-black border-2 shadow-xl bg-gray-200">
+	<h1 className="text-2xl font-bold text-center mt-3 mb-6">Login</h1>
 	<form novalidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
-		<div className="space-y-1 text-sm">
-			<label for="username" className="block text-gray-600">Username</label>
-			<input type="text" name="username" id="username" placeholder="Username" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-indigo-600" />
-		</div>
-		<div className="space-y-1 text-sm">
-			<label for="password" className="block text-gray-600">Password</label>
-			<input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-indigo-600" />
-			<div className="flex justify-end text-xs text-gray-600">
+
+    <div class="flex flex-col mb-2">
+        
+                <div class="flex relative ">
+
+                    <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
+                        <svg width="15" height="15" fill="currentColor" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z">
+                            </path>
+                        </svg>
+                    </span>
+
+                    <input type="email" id="email" class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent" placeholder="Your email" required/>
+                    </div>
+                </div>
+                <div class="flex flex-col mb-6">
+                    <div class="flex relative ">
+                        <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
+                            <svg width="15" height="15" fill="currentColor" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1376 768q40 0 68 28t28 68v576q0 40-28 68t-68 28h-960q-40 0-68-28t-28-68v-576q0-40 28-68t68-28h32v-320q0-185 131.5-316.5t316.5-131.5 316.5 131.5 131.5 316.5q0 26-19 45t-45 19h-64q-26 0-45-19t-19-45q0-106-75-181t-181-75-181 75-75 181v320h736z">
+                                </path>
+                            </svg>
+                        </span>
+                        <input type="password" id="password" class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent" placeholder="Your password" required/>
+                        </div>
+                    </div>
+
+			<div className="flex justify-end  text-gray-600">
 				<a rel="noopener noreferrer" href="/">Forgot Password?</a>
-			</div>
 		</div>
 		<button className="block w-full p-3 text-center rounded-sm text-white bg-black">Login</button>
 	</form>
+    
 	<div className="flex items-center pt-4 space-x-1">
 		<div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
-		<p className="px-3 text-sm text-gray-600">Login with social accounts</p>
+		<p className="px-3  text-gray-600">Login with social accounts</p>
 		<div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
 	</div>
 	<div className="flex justify-center space-x-4">
@@ -31,10 +51,11 @@ const Login = () => {
 				<path d="M16.318 13.714v5.484h9.078c-0.37 2.354-2.745 6.901-9.078 6.901-5.458 0-9.917-4.521-9.917-10.099s4.458-10.099 9.917-10.099c3.109 0 5.193 1.318 6.38 2.464l4.339-4.182c-2.786-2.599-6.396-4.182-10.719-4.182-8.844 0-16 7.151-16 16s7.156 16 16 16c9.234 0 15.365-6.49 15.365-15.635 0-1.052-0.115-1.854-0.255-2.651z"></path>
 			</svg>
 		</button>
-		<button aria-label="Log in with Twitter" className="p-3 rounded-sm">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
-				<path d="M31.937 6.093c-1.177 0.516-2.437 0.871-3.765 1.032 1.355-0.813 2.391-2.099 2.885-3.631-1.271 0.74-2.677 1.276-4.172 1.579-1.192-1.276-2.896-2.079-4.787-2.079-3.625 0-6.563 2.937-6.563 6.557 0 0.521 0.063 1.021 0.172 1.495-5.453-0.255-10.287-2.875-13.52-6.833-0.568 0.964-0.891 2.084-0.891 3.303 0 2.281 1.161 4.281 2.916 5.457-1.073-0.031-2.083-0.328-2.968-0.817v0.079c0 3.181 2.26 5.833 5.26 6.437-0.547 0.145-1.131 0.229-1.724 0.229-0.421 0-0.823-0.041-1.224-0.115 0.844 2.604 3.26 4.5 6.14 4.557-2.239 1.755-5.077 2.801-8.135 2.801-0.521 0-1.041-0.025-1.563-0.088 2.917 1.86 6.36 2.948 10.079 2.948 12.067 0 18.661-9.995 18.661-18.651 0-0.276 0-0.557-0.021-0.839 1.287-0.917 2.401-2.079 3.281-3.396z"></path>
-			</svg>
+		<button aria-label="Log in with Facebook" className="p-3 rounded-sm">
+        <svg width="20" height="20" fill="currentColor" class="mr-2" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z">
+                </path>
+            </svg>
 		</button>
 		<button aria-label="Log in with GitHub" className="p-3 rounded-sm">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
@@ -42,9 +63,9 @@ const Login = () => {
 			</svg>
 		</button>
 	</div>
-	<p className="text-xs text-center sm:px-6 text-gray-600">Don't have an account?
-		<a rel="noopener noreferrer" href="/" className="underline text-gray-800">Sign up</a>
-	</p>
+	<p className="text-center sm:px-6 text-gray-600">Don't have an account?
+		<Link rel="noopener noreferrer" to ="/register" className=" text-gray-800 m-2 font-bold"> Register </Link>
+	</p> 
 </div>
        </div>
     );
