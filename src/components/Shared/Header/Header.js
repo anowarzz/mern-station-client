@@ -33,7 +33,7 @@ const handleTheme = () => {
     className="mr-3 md:h-20 sm:h-10  w-20"
     alt="Mern Stack Logo"
   /></Link>
-  <span className="self-center whitespace-nowrap sm:text-3xl font-oswald text-blue-600 text-xl font-bold">
+  <span className="self-center whitespace-nowrap sm:text-3xl font-oswald text-blue-500 text-xl font-bold">
     <Link to="/"><span className="text-black">MERN</span> Station</Link>
   </span>
   </Navbar.Brand>
@@ -41,7 +41,7 @@ const handleTheme = () => {
   <Navbar.Toggle />
   <Navbar.Collapse>
 
- <NavLink className='text-lg py-1' to = "/"> Home </NavLink>
+ <NavLink  className='text-lg py-1 hover:text-teal-800 ' to = "/"> Home </NavLink>
 
  <NavLink className='text-lg py-1' to = "/courses"> Courses </NavLink>
 
@@ -62,7 +62,7 @@ const handleTheme = () => {
   user?.uid ?  <>
   {user.displayName}</> 
   :
-    <button className="bg-black text-white py-1 px-6">
+    <button className="bg-black text-white py-1 px-6  hover:bg-teal-400 hover:text-black">
   Login
  </button>
   }

@@ -16,7 +16,7 @@ const Home = () => {
             <path d="M50 0H100L50 100H0L50 0Z" />
           </svg>
           <img
-            className="object-cover w-full h-64 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
+            className="object-cover w-full h-52 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
             src={hero}
             alt=""
           />
@@ -30,9 +30,7 @@ const Home = () => {
               Everything you
               <br className="hidden md:block" />
               can imagine{" "}
-              <span className="inline-block text-deep-purple-accent-400">
-                is real
-              </span>
+              <span className="inline-block text-purple-700">is real</span>
             </h2>
             <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -41,16 +39,16 @@ const Home = () => {
             </p>
 
             <div className="flex items-center">
-              <Link to="/">
-                <button className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide  transition duration-200  shadow-md bg-gray-400 text-white hover:bg-purple-700 focus:shadow-outline focus:outline-none">
-                 View Courses
+              <Link to="/courses">
+                <button className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide  transition duration-200  shadow-md bg-black text-white  focus:shadow-outline  hover:bg-teal-400 hover:text-black focus:outline-none">
+                  View Courses
                 </button>
               </Link>
-              <Link to="/">
-                <button   className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 shadow-md bg-black  focus:shadow-outline focus:outline-none">
-                Register
+              <Link to="/register">
+                <button className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 shadow-md bg-black btn hover:bg-teal-400 hover:text-black focus:shadow-outline focus:outline-none">
+                  Register
                 </button>
-                </Link>
+              </Link>
             </div>
           </div>
         </div>
