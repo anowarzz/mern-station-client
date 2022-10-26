@@ -1,7 +1,38 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+
+const  [loginInfo, setLoginInfo] = useState({
+    email:"",
+    password: ""
+})    
+
+const [error, setError] = useState('')
+
+
+
+const handleLogin = () => {
+
+
+
+}
+
+
+const handleLoginEmail = (event) => {
+const email = event.target.value;
+setLoginInfo({...loginInfo, email: email})
+
+    }
+
+const handleLoginPassword = (event) => {
+    const password = event.target.value;
+    setLoginInfo({...loginInfo, password: password})
+}
+
+
+
     return (
        <div className='flex justify-center items-center py-6'>
          <div className="w-[90%] mx-auto max-w-md p-8 space-y-3 rounded  text-black shadow-2xl bg-slate-300">
@@ -19,7 +50,7 @@ const Login = () => {
                         </svg>
                     </span>
                   
-                    <input type="email" id="email" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent" placeholder="Email" required/>
+                    <input type="email" id="email" name='email' className="rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent" placeholder="Email" required/>
                     </div>
                 </div>
 
@@ -33,7 +64,7 @@ const Login = () => {
                                 </path>
                             </svg>
                         </span>
-                        <input type="password" id="password" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent" placeholder="Your password" required/>
+                        <input type="password" name='password' onChange={handleEmailChange}  id="password" className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent" placeholder="Your password" required/>
                         </div>
                     </div>
 
