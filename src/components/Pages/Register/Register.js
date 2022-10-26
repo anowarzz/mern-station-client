@@ -1,82 +1,145 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+
 
 const Register = () => {
+
+    const [userInfo, setUserInfo] = useState({
+        name:"",
+        photo:"",
+        email:"",
+        password:"",
+        confirm:""
+        
+        
+    })
+
+    const handleCreateUser = (event) => {
+
+        toast.success("button clicked")
+        event.preventDefault();
+
+        const form = event.target;
+        const name = form.name.value;
+        console.log(name);
+        
+        
+    }
+
+
+    const handleNameChange = (event) => {
+        const name = event.target.value;
+        setUserInfo({...userInfo, name: name})
+      
+    }
+    
+    const handlePhotoChange = (event) => {
+        const photo = event.target.value;
+        setUserInfo({...userInfo, photo: photo})
+    }
+
+
+    const handleEmailChange = (event) => {
+
+        const email = event.target.value;
+        setUserInfo({...userInfo, email: email})
+    }
+
+
+    const handlePassChange = (event) => {
+        const password = event.target.value;
+        console.log(password.length);
+        
+
+        if(password < 6){
+            return alert("password sholde");
+        }
+        setUserInfo({...userInfo, password:password})
+    }
+
+    const handleConfirmPassChange = (event) => {
+        const confirm = event.target.value;
+        setUserInfo({...userInfo, confirm: confirm})
+    }
+
+
+
+
   return (
     <div className="flex justify-center items-center py-8">
+      
       <div className="w-[90%] mx-auto max-w-md p-8 space-y-3 rounded-xl  text-black shadow-2xl bg-slate-300">
         <h1 className="text-2xl font-bold text-center mt-3 mb-6">Register</h1>
-        <form
-          novalidate=""
+        <form onSubmit={handleCreateUser}
           action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
         >
-          <div class="flex flex-col mb-2">
-            <div class="flex relative mb-4 ">
-              <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-black shadow-sm text-sm">
+          <div className="flex flex-col mb-2">
+            <div className="flex relative mb-4 ">
+              <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-black shadow-sm text-sm">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="15"
                   height="15"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
                
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
                   />
                 </svg>
               </span>
 
               <input
-                type="Name"
-                id="name"
-                class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-                placeholder="Enter Your Name"
+                type="Name" value={userInfo.name} onChange={handleNameChange}
+                className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
+                placeholder="Enter Your Full Name"
                 required
               />
             </div>
    
-            <div class="flex relative mb-4 ">
-              <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-black shadow-sm text-sm">
+            <div className="flex relative mb-4 ">
+              <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-black shadow-sm text-sm">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="15"
                   height="15"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
               
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"
                   />
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"
                   />
                 </svg>
               </span>
 
               <input
-                type="photo"
+                type="photo" name="photo" value={userInfo.photo} onChange={handlePhotoChange}
                 id="photo"
-                class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
+                className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                 placeholder="Enter Your Photo URL"
     
               />
             </div>
            
-            <div class="flex relative ">
-              <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
+            <div className="flex relative ">
+              <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                 <svg
                   width="15"
                   height="15"
@@ -89,9 +152,9 @@ const Register = () => {
               </span>
 
               <input
-                type="email"
+                type="email" name="email" value={userInfo.email} onChange={handleEmailChange}
                 id="email"
-                class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black  shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
+                className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black  shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                 placeholder="Type Your Email"
                 required
               />
@@ -100,8 +163,8 @@ const Register = () => {
 
           
         
-            <div class="flex relative">
-              <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
+            <div className="flex relative">
+              <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                 <svg
                   width="15"
                   height="15"
@@ -113,17 +176,17 @@ const Register = () => {
                 </svg>
               </span>
               <input
-                type="password"
+                type="password" name="password" value={userInfo.password} onChange={handlePassChange}
                 id="password"
-                class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
+                className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                 placeholder="Type Your Password"
                 required
               />
         
           </div>
         
-            <div class="flex relative">
-              <span class="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
+            <div className="flex relative">
+              <span className="rounded-l-md inline-flex  items-center px-3 border-t bg-white border-l border-b  border-gray-300 text-gray-500 shadow-sm text-sm">
                 <svg
                   width="15"
                   height="15"
@@ -135,9 +198,9 @@ const Register = () => {
                 </svg>
               </span>
               <input
-                type="password"
-                id="password"
-                class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
+                type="password" name="confirm" value={userInfo.confirm} onChange={handleConfirmPassChange}
+                id="confirm"
+                className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                 placeholder="Confirm Your Password"
                 required
               />
@@ -163,7 +226,7 @@ const Register = () => {
            <p>Google</p>
 		</button>
 		<button aria-label="Log in with Facebook" className="p-3 rounded-sm  hover:text-blue-700  flex flex-col justify-center items-center">
-        <svg width="20" height="20" fill="currentColor" class="mr-2 w-5  h-5 fill-current" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+        <svg width="20" height="20" fill="currentColor" className="mr-2 w-5  h-5 fill-current" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z">
                 </path>
             </svg>
@@ -175,6 +238,7 @@ const Register = () => {
 			</svg>
             <p>GitHub</p>
 		</button>
+        
 	</div>
        
       </div>

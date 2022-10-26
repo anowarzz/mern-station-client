@@ -10,7 +10,7 @@ import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+
 
   const [dark, setDark] = useState(false);
 
@@ -24,13 +24,13 @@ const Header = () => {
         <Link>
           <img
             src={logo}
-            className="mr-3 md:h-20 sm:h-10  w-20"
+            className="mr-3 md:h-20 sm:h-15  w-20"
             alt="Mern Stack Logo"
           />
         </Link>
-        <span className="self-center whitespace-nowrap sm:text-3xl font-oswald text-blue-500 text-xl font-bold">
+        <span className="self-center whitespace-nowrap sm:text-3xl font-oswald text-black text-xl font-bold">
           <Link to="/">
-            <span className="text-black">MERN</span> Station
+            <span className="text-purple-600">MERN</span> Station
           </Link>
         </span>
       </Navbar.Brand>
@@ -75,7 +75,7 @@ const Header = () => {
 
         <NavLink
           onClick={handleTheme}
-          className="text-lg py-1 md:border border-dotted border-black px-2 hover:outline"
+          className="text-lg py-1 md:border border-dotted border-black md:px-2"
         >
           {dark ? (
             <p>
@@ -92,7 +92,7 @@ const Header = () => {
           {user?.uid ? (
             <>{user.displayName}</>
           ) : (
-            <button className="bg-black text-white py-1 px-6  hover:bg-teal-400 hover:text-black hover:outline">
+            <button className="bg-black text-white py-1 px-6  hover:bg-teal-400 hover:text-black">
               Login
             </button>
           )}
