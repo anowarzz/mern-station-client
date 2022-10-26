@@ -41,8 +41,6 @@ const handleTheme = () => {
   <Navbar.Toggle />
   <Navbar.Collapse>
 
-
-  
  <NavLink className='text-lg py-1' to = "/courses"> Courses </NavLink>
 
  <NavLink className='text-lg py-1' to="faq"> FAQ </NavLink>
@@ -57,7 +55,6 @@ const handleTheme = () => {
     
   } 
   </NavLink>
-
  <NavLink to="/login" className='text-lg'>
   {
   user?.uid ?  <>
@@ -67,10 +64,7 @@ const handleTheme = () => {
   Login
  </button>
   }
-  
-
   </NavLink>
-
 </Navbar.Collapse>
 </Navbar>
 
