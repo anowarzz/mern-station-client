@@ -8,7 +8,9 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/mern-logo.png";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
-
+import 'react-tippy/dist/tippy.css'
+import {Tooltip,} from 'react-tippy';
+ 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
@@ -109,13 +111,18 @@ const Header = () => {
             {user?.uid ? (
               <> 
                 { user.photoURL?
-                  <img
+                 <Tooltip 
+                 theme="light"
+                 title={user?.displayName ? user?.displayName : "User"}
+                 position="bottom" >
+                   <img
                   alt=""
                   style={{ height: "50px", width: "50px" }}
                   className="rounded-full mb-4 md:mb-0"
                   src={user?.photoURL}
-                  title={user?.displayName ? user?.displayName : "User"}
-                /> : <FontAwesomeIcon className="text-lg" icon={faUser} />
+                  />
+                 </Tooltip>
+                 : <FontAwesomeIcon className="text-lg" icon={faUser} />
                 }
 
                 <button
