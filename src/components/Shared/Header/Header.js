@@ -48,7 +48,7 @@ const Header = () => {
           <div className="flex flex-col md:flex-row justify-between md:gap-4 items-center">
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-lg py-1 px-4 text-blue-500 hover:bg-blue-500 hover:text-black" : "text-lg py-1 hover:bg-blue-500 px-4 "
+                isActive ? "text-lg py-1 px-3 text-blue-500 hover:bg-blue-500 hover:text-black" : "text-lg py-1 hover:bg-blue-500 px-3 "
               }
               to="/home"
             >
@@ -57,7 +57,7 @@ const Header = () => {
 
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-lg py-1 px-4  text-blue-500 hover:bg-blue-500 hover:text-black" : "text-lg py-1 hover:bg-blue-500 px-4"
+                isActive ? "text-lg py-1 px-3  text-blue-500 hover:bg-blue-500 hover:text-black" : "text-lg py-1 hover:bg-blue-500 px-3"
               }
               to="/courses"
             >
@@ -66,7 +66,7 @@ const Header = () => {
 
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-lg py-1 px-4 text-blue-500 hover:bg-blue-500 hover:text-black " : "text-lg py-1 hover:bg-blue-500 px-4"
+                isActive ? "text-lg py-1 px-3 text-blue-500 hover:bg-blue-500 hover:text-black " : "text-lg py-1 hover:bg-blue-500 px-3"
               }
               to="faq"
             >
@@ -76,7 +76,7 @@ const Header = () => {
             <NavLink
               to="blog"
               className={({ isActive }) =>
-                isActive ? "text-lg py-1 px-4 text-blue-500 hover:bg-blue-500 hover:text-black" : "text-lg py-1 hover:bg-blue-500 px-4"
+                isActive ? "text-lg py-1 px-3 text-blue-500 hover:bg-blue-500 hover:text-black" : "text-lg py-1 hover:bg-blue-500 px-3"
               }
             >
               Blog
@@ -84,7 +84,7 @@ const Header = () => {
 
             <NavLink
               onClick={handleTheme}
-              className="text-lg py-1  border-black md:px-2 mb-2 md:mb-0 hover:bg-blue-500 px-4"
+              className="text-lg py-1  border-black md:px-2 mb-2 md:mb-0 hover:bg-blue-500 px-3"
             >
               {dark ? (
                 <p>
@@ -109,14 +109,14 @@ const Header = () => {
 
                 <button
                   onClick={handleLogOut}
-                  className="bg-red-500 text-black py-1 px-6  hover:bg-red-700"
+                  className="bg-red-500 text-black py-2 px-6  hover:bg-red-700"
                 >
                   Log Out
                 </button>
               </>
             ) : (
               <NavLink to="/login" className="text-lg">
-                <button className="bg-black text-white py-1 px-6  hover:bg-teal-400 hover:text-black">
+                <button className="bg-black text-white py-2 px-6  hover:bg-teal-400 hover:text-black">
                   Login
                 </button>
               </NavLink>

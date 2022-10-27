@@ -1,15 +1,29 @@
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useContext } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
+
+const{user, logIn} = useContext(AuthContext);
+
+
+const navigate = useNavigate()
+const location = useLocation();
+
+
+const from = location.state?.from?.pathname || '/'
+
+
 
 const  [loginInfo, setLoginInfo] = useState({
     email:"",
     password: ""
 })    
+
 const [passwordShown,  setPasswordShown] = useState(false)
 const [error, setError] = useState('')
 
@@ -21,8 +35,27 @@ const handlePassShowToogle = () => {
 
 const handleUserLogin = (event) => {
 event.preventDefault();
+const email = loginInfo.email;
+const password = loginInfo.password;
 
-console.log(loginInfo.email, loginInfo.password);
+console.log(email, password);
+
+logIn(email, password)
+.then(result => {
+    const user = result.user
+    console.log(user);
+    setError('')
+    navigate(from , {replace : true})
+  
+   
+})
+.catch(error => {
+  console.error(error)
+  setError(error.message)
+
+})
+
+
 
 
 }
@@ -88,8 +121,11 @@ const handleLoginPassword = (event) => {
 			<div className="flex justify-end  text-gray-800">
 				<Link >Forgot Password?</Link>
 		</div>
-		<button className="block w-full p-3 text-center rounded-sm  hover:bg-teal-400 hover:text-black text-white bg-black">Login</button>
+		<button type='submit' className="block w-full p-3 text-center rounded-sm  hover:bg-teal-400 hover:text-black text-white bg-black">Login</button>
 	</form>
+                    {
+                        error && <p className='text-red-500 font-bold text-lg text-center'> {error}</p>
+                    }
 
 	<div className="flex items-center pt-4 space-x-1">
 		<div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
