@@ -8,7 +8,9 @@ import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
 
-const {creteNewUser} = useContext(AuthContext)
+const {createNewUser} = useContext(AuthContext)
+
+
 
 
   const [userInfo, setUserInfo] = useState({
@@ -26,24 +28,51 @@ const {creteNewUser} = useContext(AuthContext)
     const [passwordShown,  setPasswordShown] = useState(false)
 
 
+    const  resetForm = () => {
+        setUserInfo({name: "", photo: "", email: "", password: "", confirm: ""})
+    }
+
 
     const handleCreateUser = (event) => {
         event.preventDefault();
-        const form = event.target
-
+       
         const email = userInfo.email;
+        const name = userInfo.name;
+        const photoURL = userInfo.photo
         const password = userInfo.password;
+        const confirm = userInfo.confirm;
 
-        creteNewUser(email, password)
+
+        if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+            setErrors({...errors, email: "Please Provide a Valid Email"})
+            return;
+         }
+        
+
+
+         if(password.length < 6){
+            setErrors({email: "", password: "Password Must Be 6 Character or More"});
+            return;
+       }
+       
+
+
+       if(confirm !== password){
+      setErrors({email: "", password: "Your Password Did Not Match"})
+        return;
+    }
+   
+
+        createNewUser(email, password)
         .then(result => {
             const user = result.user
             console.log(user);
-            form.reset();
-            setErrors("")
+            resetForm();
+            setErrors({email: "", password: ""})
         })
         .catch(error => {
             console.log(error);
-            setErrors(error.message)
+            setErrors({...errors, email:error.message})
             
         })
          
@@ -53,9 +82,7 @@ const {creteNewUser} = useContext(AuthContext)
 
 
 
-
-
-    const handlePassShowToogle = () => {
+    const handlePassShowToggle = () => {
         setPasswordShown(!passwordShown)
     }
 
@@ -72,48 +99,24 @@ const {creteNewUser} = useContext(AuthContext)
 
     const handleEmailChange = (event) => {
         const email = event.target.value;
-
-        if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
-           setErrors({...errors, email: "Please Provide a Valid Email"})
-            setUserInfo({...userInfo, email: email})
-        }
-           else{
-               setErrors({...errors, email:""});
-               setUserInfo({...userInfo, email: email})
-        }
+        setUserInfo({...userInfo, email: email})
         }
 
 
 
     const handlePassChange = (event) => {
-        const password = event.target.value;
-        
-        if(password.length < 6){
-             setErrors({...errors, password: "Password Must Be 6 Character or More"});
-             setUserInfo({...userInfo, password: password})
-        }
-        else{
-            setErrors("")
-            setUserInfo({...userInfo, password:password})
-        }
+    const password = event.target.value;
+     setUserInfo({...userInfo, password:password})
+
     }
-    console.log(userInfo.email);
+  
 
 
     const handleConfirmPassChange = (event) => {
-        const password = userInfo.password
         const confirm = event.target.value;
-
-        if(confirm !== password){
-            
-            setErrors({...errors, password: "Your Password Did Not Match"})
-            setUserInfo({...userInfo, confirm: confirm})
+        setUserInfo({...userInfo, confirm: confirm})
         }
-        else{
-            setErrors("")
-            setUserInfo({...userInfo, confirm: confirm})
-        }
-    }
+    
 
 
 
@@ -233,7 +236,7 @@ const {creteNewUser} = useContext(AuthContext)
                 className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                 placeholder="Type Your Password"
                 required
-              /> <span onClick={handlePassShowToogle} className="pt-2 absolute right-1 cursor-pointer">
+              /> <span onClick={handlePassShowToggle} className="pt-2 absolute right-1 cursor-pointer">
               
                     {
                         passwordShown ?   <FontAwesomeIcon icon={faEye}/>  :
@@ -262,7 +265,7 @@ const {creteNewUser} = useContext(AuthContext)
                 placeholder="Confirm Your Password"
                 required
               />
-        <span onClick={handlePassShowToogle} className="pt-2 absolute right-1 cursor-pointer">
+        <span onClick={handlePassShowToggle} className="pt-2 absolute right-1 cursor-pointer">
       
                   {
                    passwordShown ?  <FontAwesomeIcon icon={faEye}/> : 
@@ -273,7 +276,7 @@ const {creteNewUser} = useContext(AuthContext)
           </div>
 
           
-          <button className=" block w-full p-3 text-center rounded-sm text-white bg-black  hover:bg-teal-400 hover:text-black">
+          <button type="submit" className=" block w-full p-3 text-center rounded-sm text-white bg-black  hover:bg-teal-400 hover:text-black">
             Register
           </button>
         </form>
