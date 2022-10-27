@@ -1,4 +1,4 @@
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { faMoon, faSun, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Navbar } from "flowbite-react";
 import { NavbarBrand } from "flowbite-react/lib/esm/components/Navbar/NavbarBrand";
@@ -109,7 +109,7 @@ const Header = () => {
             {user?.uid ? (
               <>
                 <img
-                  alt="User Pic"
+                  alt="User"
                   style={{ height: "50px", width: "50px" }}
                   className="rounded-full mb-4 md:mb-0"
                   src={user?.photoURL}
