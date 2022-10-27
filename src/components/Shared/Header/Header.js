@@ -30,20 +30,16 @@ const Header = () => {
   return (
     <div>
       <Navbar className="bg-slate-200" fluid={true} rounded={true}>
-        <NavbarBrand>
-          <Link>
+        <NavLink to = '/' className="flex">
             <img
               src={logo}
               className="mr-3 md:h-20 sm:h-15  w-20"
               alt="Mern Stack Logo"
             />
-          </Link>
-          <span className="self-center whitespace-nowrap sm:text-3xl font-oswald text-black text-xl font-bold">
-            <Link to="/">
+          <h5 className="self-center whitespace-nowrap sm:text-3xl font-oswald text-black text-xl font-bold">
               <span className="text-purple-600">MERN</span> Station
-            </Link>
-          </span>
-        </NavbarBrand>
+          </h5>
+        </NavLink>
 
         <Navbar.Toggle />
         <Navbar.Collapse>
