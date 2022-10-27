@@ -107,14 +107,16 @@ const Header = () => {
             </NavLink>
 
             {user?.uid ? (
-              <>
-                <img
-                  alt="User"
+              <> 
+                { user.photoURL?
+                  <img
+                  alt=""
                   style={{ height: "50px", width: "50px" }}
                   className="rounded-full mb-4 md:mb-0"
                   src={user?.photoURL}
                   title={user?.displayName ? user?.displayName : "User"}
-                />
+                /> : <FontAwesomeIcon className="text-lg" icon={faUser} />
+                }
 
                 <button
                   onClick={handleLogOut}

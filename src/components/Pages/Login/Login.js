@@ -15,7 +15,7 @@ const Login = () => {
 
 const{user, setUser, logIn, googleLogIn, githubLogIn, facebookLogIn} = useContext(AuthContext);
 
-console.log(facebookLogIn);
+
 
 
 
@@ -60,6 +60,7 @@ logIn(email, password)
 
 })
 }
+
 // Login With Google Account
 const googleLogInHandler = () => {
     googleLogIn(googleProvider)
