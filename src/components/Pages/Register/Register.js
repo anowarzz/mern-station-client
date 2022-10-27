@@ -2,6 +2,7 @@ import { faEye, faEyeSlash, faTriangleExclamation } from "@fortawesome/free-soli
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 
@@ -27,7 +28,7 @@ const {createNewUser, updateUserProfile} = useContext(AuthContext)
     });
 
     const [passwordShown,  setPasswordShown] = useState(false)
-
+    const navigate = useNavigate();
 
     const  resetForm = () => {
         setUserInfo({name: "", photoURL: "", email: "", password: "", confirm: ""})
@@ -71,6 +72,7 @@ const {createNewUser, updateUserProfile} = useContext(AuthContext)
             handleUpdateUserProfile(name, photoURL)
             resetForm();
             setErrors({email: "", password: ""})
+            navigate('/')
         })
         .catch(error => {
             console.log(error);

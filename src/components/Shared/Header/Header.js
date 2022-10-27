@@ -10,8 +10,8 @@ import logo from "../../../assets/mern-logo.png";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
-
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user?.photoURL);
 
   const [dark, setDark] = useState(false);
 
@@ -19,95 +19,112 @@ const Header = () => {
     setDark(!dark);
   };
 
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
   return (
-    <Navbar className="bg-slate-200" fluid={true} rounded={true}>
-      <NavbarBrand>
-        <Link>
-          <img
-            src={logo}
-            className="mr-3 md:h-20 sm:h-15  w-20"
-            alt="Mern Stack Logo"
-          />
-        </Link>
-        <span className="self-center whitespace-nowrap sm:text-3xl font-oswald text-black text-xl font-bold">
-          <Link to="/">
-            <span className="text-purple-600">MERN</span> Station
+    <div>
+      <Navbar className="bg-slate-200" fluid={true} rounded={true}>
+        <NavbarBrand>
+          <Link>
+            <img
+              src={logo}
+              className="mr-3 md:h-20 sm:h-15  w-20"
+              alt="Mern Stack Logo"
+            />
           </Link>
-        </span>
-      </NavbarBrand>
+          <span className="self-center whitespace-nowrap sm:text-3xl font-oswald text-black text-xl font-bold">
+            <Link to="/">
+              <span className="text-purple-600">MERN</span> Station
+            </Link>
+          </span>
+        </NavbarBrand>
 
-      <Navbar.Toggle />
-      <Navbar.Collapse>
+        <Navbar.Toggle />
+        <Navbar.Collapse>
+          <div className="flex flex-col md:flex-row justify-between md:gap-4 items-center">
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-lg py-1 px-4 text-blue-500 hover:bg-blue-500 hover:text-black" : "text-lg py-1 hover:bg-blue-500 px-4 "
+              }
+              to="/home"
+            >
+              Home
+            </NavLink>
 
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "text-lg py-1 text-blue-500" : "text-lg py-1 "
-          } to="/home">
-          Home
-        </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-lg py-1 px-4  text-blue-500 hover:bg-blue-500 hover:text-black" : "text-lg py-1 hover:bg-blue-500 px-4"
+              }
+              to="/courses"
+            >
+              Courses
+            </NavLink>
 
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "text-lg py-1 text-blue-500" : "text-lg py-1 "
-          }
-          to="/courses"
-        >
-          Courses
-        </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? "text-lg py-1 px-4 text-blue-500 hover:bg-blue-500 hover:text-black " : "text-lg py-1 hover:bg-blue-500 px-4"
+              }
+              to="faq"
+            >
+              FAQ
+            </NavLink>
 
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "text-lg py-1 text-blue-500" : "text-lg py-1 "
-          }
-          to="faq"
-        >
-          FAQ
-        </NavLink>
+            <NavLink
+              to="blog"
+              className={({ isActive }) =>
+                isActive ? "text-lg py-1 px-4 text-blue-500 hover:bg-blue-500 hover:text-black" : "text-lg py-1 hover:bg-blue-500 px-4"
+              }
+            >
+              Blog
+            </NavLink>
 
-        <NavLink
-          to="blog"
-          className={({ isActive }) =>
-            isActive ? "text-lg py-1 text-blue-500" : "text-lg py-1 "
-          }
-        >
-      
-          Blog
-        </NavLink>
+            <NavLink
+              onClick={handleTheme}
+              className="text-lg py-1  border-black md:px-2 mb-2 md:mb-0 hover:bg-blue-500 px-4"
+            >
+              {dark ? (
+                <p>
+                  Light <FontAwesomeIcon icon={faSun} />
+                </p>
+              ) : (
+                <p className="">
+                  Dark <FontAwesomeIcon icon={faMoon} />
+                </p>
+              )}
+            </NavLink>
 
-        <NavLink
-          onClick={handleTheme}
-          className="text-lg py-1 md:border border-dotted border-black md:px-2"
-        >
-          {dark ? (
-            <p>
-              Light <FontAwesomeIcon icon={faSun} />
-            </p>
-          ) : (
-            <p className="">
-            
-              Dark <FontAwesomeIcon icon={faMoon} />
-            </p>
-          )}
-        </NavLink>
+            {user?.uid ? (
+              <>
+                <img
+                  alt="User Pic"
+                  style={{ height: "50px", width: "60px" }}
+                  className="rounded-full mb-4 md:mb-0"
+                  src={user?.photoURL}
+                  title={user?.displayName ? user?.displayName : "User"}
+                />
 
-
-        <NavLink to="/login" className="text-lg">
-          {user?.uid ? (
-            <>{user.displayName}</>
-          ) : (
-            <button className="bg-black text-white py-1 px-6  hover:bg-teal-400 hover:text-black">
-              Login
-            </button>
-          )}
-        </NavLink>
-
-
-
-
-
-
-      </Navbar.Collapse>
-    </Navbar>
+                <button
+                  onClick={handleLogOut}
+                  className="bg-red-500 text-black py-1 px-6  hover:bg-red-700"
+                >
+                  Log Out
+                </button>
+              </>
+            ) : (
+              <NavLink to="/login" className="text-lg">
+                <button className="bg-black text-white py-1 px-6  hover:bg-teal-400 hover:text-black">
+                  Login
+                </button>
+              </NavLink>
+            )}
+          </div>
+        </Navbar.Collapse>
+      </Navbar>
+    </div>
   );
 };
 
