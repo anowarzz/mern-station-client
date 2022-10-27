@@ -8,28 +8,29 @@ import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
 
-const {createNewUser} = useContext(AuthContext)
+const {createNewUser, updateUserProfile} = useContext(AuthContext)
 
 
 
 
   const [userInfo, setUserInfo] = useState({
         name:"",
-        photo:"",
+        photoURL:"",
         email:"",
         password:"",
         confirm:"" 
           })
 
-    const [errors, setErrors] = useState({
+  const [errors, setErrors] = useState({
         email:"",
         password: ""
     });
+
     const [passwordShown,  setPasswordShown] = useState(false)
 
 
     const  resetForm = () => {
-        setUserInfo({name: "", photo: "", email: "", password: "", confirm: ""})
+        setUserInfo({name: "", photoURL: "", email: "", password: "", confirm: ""})
     }
 
 
@@ -38,7 +39,7 @@ const {createNewUser} = useContext(AuthContext)
        
         const email = userInfo.email;
         const name = userInfo.name;
-        const photoURL = userInfo.photo
+        const photoURL = userInfo.photoURL
         const password = userInfo.password;
         const confirm = userInfo.confirm;
 
@@ -67,6 +68,7 @@ const {createNewUser} = useContext(AuthContext)
         .then(result => {
             const user = result.user
             console.log(user);
+            handleUpdateUserProfile(name, photoURL)
             resetForm();
             setErrors({email: "", password: ""})
         })
@@ -78,8 +80,18 @@ const {createNewUser} = useContext(AuthContext)
          
     }
 
+    const handleUpdateUserProfile = (name, photo) => {
 
-
+        const profile = {
+          displayName : name,
+          photoURL : photo 
+        }
+        
+          updateUserProfile(profile)
+          .then(()=> {})
+          .catch(e => console.error(e))
+        }
+  
 
 
     const handlePassShowToggle = () => {
@@ -92,8 +104,8 @@ const {createNewUser} = useContext(AuthContext)
     }
 
     const handlePhotoChange = (event) => {
-        const photo = event.target.value;
-        setUserInfo({...userInfo, photo: photo})
+        const photoURL = event.target.value;
+        setUserInfo({...userInfo, photoURL: photoURL})
     }
 
 
@@ -185,7 +197,7 @@ const {createNewUser} = useContext(AuthContext)
               </span>
 
               <input
-                type="photo" name="photo" value={userInfo.photo} onChange={handlePhotoChange}
+                type="photo" name="photo" value={userInfo.photoURL} onChange={handlePhotoChange}
                 id="photo"
                 className=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-black placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
                 placeholder="Enter Your Photo URL"

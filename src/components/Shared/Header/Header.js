@@ -1,6 +1,7 @@
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Navbar } from "flowbite-react";
+import { NavbarBrand } from "flowbite-react/lib/esm/components/Navbar/NavbarBrand";
 import React from "react";
 import { useContext } from "react";
 import { useState } from "react";
@@ -20,7 +21,7 @@ const Header = () => {
 
   return (
     <Navbar className="bg-slate-200" fluid={true} rounded={true}>
-      <Navbar.Brand>
+      <NavbarBrand>
         <Link>
           <img
             src={logo}
@@ -33,7 +34,7 @@ const Header = () => {
             <span className="text-purple-600">MERN</span> Station
           </Link>
         </span>
-      </Navbar.Brand>
+      </NavbarBrand>
 
       <Navbar.Toggle />
       <Navbar.Collapse>
@@ -88,6 +89,8 @@ const Header = () => {
             </p>
           )}
         </NavLink>
+
+
         <NavLink to="/login" className="text-lg">
           {user?.uid ? (
             <>{user.displayName}</>
@@ -97,6 +100,12 @@ const Header = () => {
             </button>
           )}
         </NavLink>
+
+
+
+
+
+
       </Navbar.Collapse>
     </Navbar>
   );
