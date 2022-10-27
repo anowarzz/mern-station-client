@@ -1,11 +1,14 @@
-import React from 'react';
+import { Card } from "flowbite-react";
+import React from "react";
 
-const CourseDetails = () => {
-    return (
-        <div>
-            <h3 className="text-3xl">This is the course details section</h3>
-        </div>
-    );
+const CourseDetails = ({course}) => {
+  const { title, image, description } = course;
+
+  return (
+    <div>
+      <h3>Here goes all the cards {course.length}</h3>
+    </div>
+  );
 };
 
 export default CourseDetails;
