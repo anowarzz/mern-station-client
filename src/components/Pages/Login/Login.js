@@ -11,13 +11,11 @@ const Login = () => {
 const{user, logIn} = useContext(AuthContext);
 
 
-const navigate = useNavigate()
+
+const navigate = useNavigate();
 const location = useLocation();
 
-
-const from = location.state?.from?.pathname || '/'
-
-
+const from = location.state?.from?.pathname || '/' ;
 
 const  [loginInfo, setLoginInfo] = useState({
     email:"",
@@ -45,8 +43,9 @@ logIn(email, password)
     const user = result.user
     console.log(user);
     setError('')
-    navigate(from , {replace : true})
+    navigate(from, {replace:true})
   
+     
    
 })
 .catch(error => {

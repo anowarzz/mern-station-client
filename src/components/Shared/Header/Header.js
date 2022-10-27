@@ -11,7 +11,7 @@ import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user?.photoURL);
+
 
   const [dark, setDark] = useState(false);
 
@@ -68,18 +68,27 @@ const Header = () => {
               className={({ isActive }) =>
                 isActive ? "text-lg py-1 px-3 text-blue-500 hover:bg-blue-500 hover:text-black " : "text-lg py-1 hover:bg-blue-500 px-3"
               }
-              to="faq"
+              to="/faq"
             >
               FAQ
             </NavLink>
 
             <NavLink
-              to="blog"
+              to="/blog"
               className={({ isActive }) =>
                 isActive ? "text-lg py-1 px-3 text-blue-500 hover:bg-blue-500 hover:text-black" : "text-lg py-1 hover:bg-blue-500 px-3"
               }
             >
               Blog
+            </NavLink>
+
+            <NavLink
+              to="/checkout"
+              className={({ isActive }) =>
+                isActive ? "text-lg py-1 px-3 text-blue-500 hover:bg-blue-500 hover:text-black" : "text-lg py-1 hover:bg-blue-500 px-3"
+              }
+            >
+              Checkout
             </NavLink>
 
             <NavLink

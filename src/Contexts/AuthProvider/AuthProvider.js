@@ -22,7 +22,7 @@ useEffect( () => {
    const unSubscribe = onAuthStateChanged(auth, currentUser => {
     console.log("current user inside the state change", user);
     setUser(currentUser)
-    setLoading(true);
+    setLoading(false);
    }) 
    return () => unSubscribe();
 }, [])
@@ -32,11 +32,13 @@ useEffect( () => {
 
 const createNewUser = (email, password) =>{
     setLoading(true);
+
     return createUserWithEmailAndPassword(auth, email, password)
 }
 
 const logIn = (email, password) => {
     setLoading(true);
+    
     return signInWithEmailAndPassword(auth, email, password);
   };
 
