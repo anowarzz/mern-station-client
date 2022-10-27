@@ -116,7 +116,7 @@ const Header = () => {
               </>
             ) : (
               <NavLink to="/login" className="text-lg">
-                <button className="bg-black text-white py-2 px-6  hover:bg-teal-400 hover:text-black">
+                <button className="bg-black text-white py-1 px-6  hover:bg-teal-400 hover:text-black">
                   Login
                 </button>
               </NavLink>
