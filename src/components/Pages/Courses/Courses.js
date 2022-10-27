@@ -24,7 +24,7 @@ useEffect(() => {
 
   <div className='sticky top-10'>
   {
-        courseNames.map(course => <h3 className='text-2xl mt-4 text-center hover:bg-blue-900 text-white tracking-wide bg-indigo-600' key={course.id}>
+        courseNames.map(course => <h3 className='text-2xl mt-4 text-center hover:bg-indigo-600 text-white tracking-wide bg-[#032D6B] ' key={course.id}>
             <Link > 
             {course.title}
             </Link>
@@ -36,7 +36,7 @@ useEffect(() => {
 
 <div className='md:col-span-4 mt-8'>
 
-<div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 '>
+<div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 '>
 {   
 courseList.map(course => <CourseDetails key={course.id} course={course} /> )
 }  

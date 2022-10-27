@@ -1,11 +1,11 @@
 import { faMoon, faSun, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Navbar } from "flowbite-react";
-import { NavbarBrand } from "flowbite-react/lib/esm/components/Navbar/NavbarBrand";
+
 import React from "react";
 import { useContext } from "react";
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../../../assets/mern-logo.png";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 import 'react-tippy/dist/tippy.css'
@@ -46,7 +46,7 @@ const Header = () => {
           <div className="flex flex-col md:flex-row justify-between md:gap-4 items-center">
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-lg py-1 px-3 text-blue-500 hover:bg-blue-500 hover:text-black" : "text-lg py-1 hover:bg-blue-500 px-3 "
+                isActive ? "text-lg py-1 px-3 text-blue-500 hover:bg-[#03396b] hover:text-white" : "text-lg py-1 hover:bg-[#03396b] px-3 hover:text-white "
               }
               to="/home"
             >
@@ -55,7 +55,7 @@ const Header = () => {
 
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-lg py-1 px-3  text-blue-500 hover:bg-blue-500 hover:text-black" : "text-lg py-1 hover:bg-blue-500 px-3"
+                isActive ? "text-lg py-1 px-3  text-blue-500 hover:bg-[#03396b] hover:text-white" : "text-lg py-1 hover:bg-[#03396b] px-3 hover:text-white"
               }
               to="/courses"
             >
@@ -64,7 +64,7 @@ const Header = () => {
 
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-lg py-1 px-3 text-blue-500 hover:bg-blue-500 hover:text-black " : "text-lg py-1 hover:bg-blue-500 px-3"
+                isActive ? "text-lg py-1 px-3 text-blue-500 hover:bg-[#03396b] hover:text-white" : "text-lg py-1 hover:bg-[#03396b] px-3 hover:text-white"
               }
               to="/faq"
             >
@@ -74,7 +74,7 @@ const Header = () => {
             <NavLink
               to="/blog"
               className={({ isActive }) =>
-                isActive ? "text-lg py-1 px-3 text-blue-500 hover:bg-blue-500 hover:text-black" : "text-lg py-1 hover:bg-blue-500 px-3"
+                isActive ? "text-lg py-1 px-3 text-blue-500 hover:bg-[#03396b] hover:text-white" : "text-lg py-1 hover:bg-[#03396b] px-3 hover:text-white"
               }
             >
               Blog
@@ -83,7 +83,7 @@ const Header = () => {
             <NavLink
               to="/checkout"
               className={({ isActive }) =>
-                isActive ? "text-lg py-1 px-3 text-blue-500 hover:bg-blue-500 hover:text-black" : "text-lg py-1 hover:bg-blue-500 px-3"
+                isActive ? "text-lg py-1 px-3 text-blue-500 hover:bg-[#03396b] hover:text-white" : "text-lg py-1 hover:bg-[#03396b] hover:text-white px-3"
               }
             >
               Checkout
@@ -91,7 +91,7 @@ const Header = () => {
 
             <NavLink
               onClick={handleTheme}
-              className="text-lg py-1  border-black md:px-2 mb-2 md:mb-0 hover:bg-blue-500 px-3"
+              className="text-lg py-1  border-black hover:text-white md:px-2 mb-2 md:mb-0 hover:bg-[#03396b] px-3"
             >
               {dark ? (
                 <p>
