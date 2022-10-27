@@ -110,7 +110,7 @@ const Header = () => {
               <>
                 <img
                   alt="User Pic"
-                  style={{ height: "50px", width: "60px" }}
+                  style={{ height: "50px", width: "50px" }}
                   className="rounded-full mb-4 md:mb-0"
                   src={user?.photoURL}
                   title={user?.displayName ? user?.displayName : "User"}

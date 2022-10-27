@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import app from '../../config/firebase.config';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -17,28 +17,29 @@ const [user, setUser] = useState(null)
 const [loading, setLoading] = useState(true)
 
 
-useEffect( () => {
-
-   const unSubscribe = onAuthStateChanged(auth, currentUser => {
-    console.log("current user inside the state change", user);
-    setUser(currentUser)
-    setLoading(false);
-   }) 
-   return () => unSubscribe();
-}, [])
-
 
 
 
 const createNewUser = (email, password) =>{
     setLoading(true);
-
     return createUserWithEmailAndPassword(auth, email, password)
 }
 
+const googleLogIn = (provider) => {
+    setLoading(true);
+    return signInWithPopup(auth, provider);
+  };
+
+const githubLogIn = (provider) => {
+    setLoading(true);
+    return signInWithPopup(auth, provider);
+  };
+
+
+
+
 const logIn = (email, password) => {
     setLoading(true);
-    
     return signInWithEmailAndPassword(auth, email, password);
   };
 
@@ -53,11 +54,19 @@ const logOut = () => {
   };
 
 
+  useEffect( () => {
+
+    const unSubscribe = onAuthStateChanged(auth, currentUser => {
+     console.log("current user inside the state change", user);
+     setUser(currentUser)
+     setLoading(false);
+    }) 
+    return () => unSubscribe();
+ }, [])
+ 
 
 
-
-
-const authInfo = {user, loading, createNewUser, updateUserProfile, logIn, logOut}
+const authInfo = {user, setUser, loading, setLoading, createNewUser, updateUserProfile, logIn, logOut, googleLogIn, githubLogIn}
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
