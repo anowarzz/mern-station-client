@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <div>
-          <div className="relative mt-16 bg-slate-400">
+          <div className="relative mt-16 bg-slate-200">
       <svg
-        className="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-slate-400"
+        className="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-slate-200"
         preserveAspectRatio="none"
         viewBox="0 0 1440 54"
       >
@@ -41,7 +41,7 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-5 row-gap-4 lg:col-span-4 md:grid-cols-3">
             <div>
               <p className="font-semibold tracking-wide text-teal-accent-400">
                 Category
@@ -123,6 +123,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+          
         </div>
         <div className="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
           <p className="text-sm text-black">

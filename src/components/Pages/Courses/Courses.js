@@ -23,12 +23,17 @@ useEffect(() => {
 
   <div className='sticky top-10'>
   {
-        courses.map(course => <h3 className='text-2xl mt-4 text-center hover:bg-teal-400 hover:text-black text-white tracking-wide bg-[#032D6B] ' key={course.id}>
-            <Link > 
+        courses.map(course => <Link to ={`/courses/${course.id}`} className='text-xl rounded mt-4 text-center hover:bg-teal-400 hover:text-black text-white tracking-wide bg-[#032D6B] block ' key={course.id}>
             {course.title}
-            </Link>
-            </h3>)
+            </Link>)
     }
+
+
+<Link > 
+           
+            </Link>
+
+
   </div>
 </div>
 
