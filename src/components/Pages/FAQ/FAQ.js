@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const FAQ = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+class FAQ extends Component {
+    render() {
+        return (
+            <div>
+                <h3>This is the faq section</h3>
+            </div>
+        );
+    }
+}
 
 export default FAQ;

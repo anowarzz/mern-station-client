@@ -29,14 +29,14 @@ const{title, price, courseDuration} = checkoutCourse
         />
          </div>
 
-            <h2 className='tex-lg md:text-3xl font-semi-bold text-center my-8'>Buy The Course : {title}</h2>
+            <h2 className='tex-lg md:text-3xl font-semi-bold text-center my-8'>Buy The Course : <span className='font-bold'>{title}</span></h2>
 
             <div className='flex justify-around'>
             <p className="font-semibold text-center bg-teal-400 rounded-md px-2">Price : ${price}</p>
             <p className="md:font-semibold text-center bg-teal-400 rounded-md px-2 hidden md:inline"> Course Duration : ${courseDuration}</p>
             </div>
 
-          <div className='flex flex-col gap-2 justify-center items-center mt-7'>
+          <div className='flex flex-col gap-2 justify-center items-center mt-7 mb-4'>
 
        <Link>
        <button className='btn bg-[#03396b] text-white p-2'>Proceed Payment</button>
