@@ -1,7 +1,7 @@
 import { Button } from 'flowbite-react';
 import React from 'react';
 import { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const CheckoutPage = () => {
@@ -10,11 +10,15 @@ const {user} = useContext(AuthContext)
 
 const checkoutCourse = useLoaderData();
 
-const{title, price, image, description, instructor, courseDuration, id} = checkoutCourse ;
+const{title, price, courseDuration} = checkoutCourse
+
+
+
+
 
     return (
       
-        <div className='w-[50%] mx-auto shadow-xl mt-10 border-4'>
+        <div className='w-[80%] md:w-[60%] mx-auto shadow-xl mt-10 border-4'>
             
        
          <div className='flex flex-col items-center justify-center'>
@@ -25,16 +29,25 @@ const{title, price, image, description, instructor, courseDuration, id} = checko
         />
          </div>
 
-            <h2 className='tex-lg md:text-3xl fontsemi-bold text-center my-8'>Buy The Course : {title}</h2>
+            <h2 className='tex-lg md:text-3xl font-semi-bold text-center my-8'>Buy The Course : {title}</h2>
 
             <div className='flex justify-around'>
-            <p className="font-semibold text-center bg-teal-400 rounded-md">Price : ${price}</p>
-            <p className="md:font-semibold text-center bg-teal-400 rounded-md hidden md:inline"> Course Duration : ${courseDuration}</p>
+            <p className="font-semibold text-center bg-teal-400 rounded-md px-2">Price : ${price}</p>
+            <p className="md:font-semibold text-center bg-teal-400 rounded-md px-2 hidden md:inline"> Course Duration : ${courseDuration}</p>
             </div>
 
-          <div>
-          <button type="button" className="text-center p-1 font-semibold tracking-wide rounded-md bg-[#03396b] text-gray-50 hover:bg-teal-400 hover:text-black">Get Premium Access $</button>
+          <div className='flex flex-col gap-2 justify-center items-center mt-7'>
+
+       <Link>
+       <button className='btn bg-[#03396b] text-white p-2'>Proceed Payment</button>
+       </Link>
+
+       <Link to='/courses'>
+       <button className='btn bg-red-500 p-2 text-white'>Back To Courses </button>
+       </Link>
+
           </div>
+       
         </div>
 
     );

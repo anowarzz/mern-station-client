@@ -59,7 +59,9 @@ export const routes = createBrowserRouter([
             {
                 path: '/checkout/:id',
                 loader: ({params}) => fetch(`https://mern-station.vercel.app/courses/${params.id}`),
-                element:  <CheckoutPage />
+                element:  <PrivateRoutes>
+                    <CheckoutPage />
+                </PrivateRoutes>
             }
 
         ]

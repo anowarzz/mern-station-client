@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
@@ -71,6 +72,7 @@ const navigate = useNavigate();
             resetForm();
             setErrors({email: "", password: ""})
             navigate('/')
+            toast.success('Successfully Registered!')
         })
         .catch(error => {
             console.log(error);
@@ -140,6 +142,7 @@ const googleLogInHandler = () => {
         const user = result.user;
         setUser(user)
         navigate('/')
+        toast.success('Successfully Registered!')
     })
     .catch(error => {
         console.error(error)
@@ -156,6 +159,7 @@ const githubLogInHandler = () => {
         const user = result.user;
         setUser(user)
         navigate('/')
+        toast.success('Successfully Registered!')
     })
     .catch(error => {
         console.error(error)
@@ -169,6 +173,7 @@ const facebookLogInHandler = () => {
         const user = result.user;
         setUser(user)
         navigate('/')
+        toast.success('Successfully Registered!')
     })
     .catch(error => {
         console.error(error)}

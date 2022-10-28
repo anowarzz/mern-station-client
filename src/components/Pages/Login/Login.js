@@ -4,6 +4,7 @@ import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider } from 'fi
 import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
@@ -51,6 +52,7 @@ logIn(email, password)
     const user = result.user
     console.log(user);
     setError('')
+    toast.success('Login Successful!')
     navigate(from, {replace:true})
   
 })
@@ -68,7 +70,9 @@ const googleLogInHandler = () => {
     .then(result => {
         const user = result.user;
         setUser(user)
+        toast.success('Login Successful!')
         navigate(from, {replace:true})
+        
     })
     .catch(error => {
         console.error(error)
@@ -84,6 +88,7 @@ const githubLogInHandler = () => {
     .then(result => {
         const user = result.user;
         setUser(user)
+        toast.success('Login Successful!')
         navigate(from, {replace:true})
     })
     .catch(error => {
@@ -100,6 +105,7 @@ const facebookLogInHandler = () => {
     .then(result => {
         const user = result.user;
         setUser(user)
+        toast.success('Login Successful!')
         navigate(from, {replace:true})
     })
     .catch(error => {
