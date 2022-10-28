@@ -29,14 +29,14 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar className="bg-slate-200" fluid={true} rounded={true}>
+      <Navbar className="md:bg-slate-200 dark:text-white" fluid={true}>
         <NavLink to = '/' className="flex">
             <img
               src={logo}
               className="mr-3 md:h-20 sm:h-15  w-20"
               alt="Mern Stack Logo"
             />
-          <h5 className="self-center whitespace-nowrap sm:text-3xl font-oswald text-black text-xl font-bold">
+          <h5 className="self-center whitespace-nowrap sm:text-3xl font-oswald dark:text-white text-xl font-bold">
               <span className="text-purple-600">MERN</span> Station
           </h5>
         </NavLink>
@@ -127,7 +127,7 @@ const Header = () => {
                 </button>
               </NavLink>
 
-              <NavLink to="/register" className="text-lg">
+              <NavLink to="/register" className="text-lg mt-3 md:mt-0">
                 <button className="bg-black text-white py-1 px-6  hover:bg-teal-400 hover:text-black">
                   Register
                 </button>

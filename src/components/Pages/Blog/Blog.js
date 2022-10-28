@@ -5,12 +5,12 @@ import React from "react";
 const Blog = () => {
   return (
     <div className="h-full w-[95%] md:w-[80%] mx-auto pb-12 border-2 mt-8 shadow-lg rounded">
-      <h1 className="text-4xl font-bold text-center pt-8 pb-10 ">
+      <h1 className="text-2xl md:text-3xl font-bold text-center pt-8 pb-10 ">
         Firebase Authentication 
       </h1>
 
-      <div className="mt-16  rounded font-semibold w-[80%] mx-auto p-6">
-        <h3 className="text-3xl p-2 ">
+      <div className="mt-16  rounded w-[80%] mx-auto p-6">
+        <h3 className="text-2xl md:text-3xl p-2 font-bold ">
           1. What Is <code>Cors</code> ?
         </h3>
 
@@ -20,8 +20,8 @@ const Blog = () => {
         </p>
       </div>
 
-      <div className="mt-16  rounded font-semibold w-[80%] mx-auto p-6">
-        <h3 className="text-3xl p-2 ">2. Why Do We Use Firebase ? What other options do you have to implement authentication? </h3>
+      <div className="mt-16  rounded  w-[80%] mx-auto p-6">
+        <h3 className="text-2xl md:text-3xl p-2 font-bold">2. Why Do We Use Firebase ? What other options do you have to implement authentication? </h3>
 
         <p className="mt-6 text-lg">
         Firebase is a software development platform offered by Google. It helps to quickly build web applications without managing infrastructure. Before we discuss the pros and cons of using Firebase, let’s cover its best features. Basically, it consists of dozens of helpful services inside, including Authenticaton, Hosting, Cloud Storage.
@@ -36,8 +36,8 @@ const Blog = () => {
         </ul>
       </div>
 
-      <div className="mt-16 rounded font-semibold w-[80%] mx-auto p-6">
-        <h3 className="text-3xl p-2 ">3. What is Node? How does Node work? ? </h3>
+      <div className="mt-16 rounded w-[80%] mx-auto p-6">
+        <h3 className="text-2xl md:text-3xl p-2 font-bold ">3. What is Node? How does Node work? ? </h3>
 
         <p className="mt-6 text-lg">
         Node.js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client's browser. Ryan Dahl developed it in 2009, and its latest iteration, version 15.14, was released in April 2021. Developers use Node.js to create server-side web applications, and it is perfect for data-intensive applications since it uses 
@@ -69,8 +69,8 @@ const Blog = () => {
       </div>
 
 
-      <div className="mt-16  rounded font-semibold w-[80%] mx-auto p-6">
-        <h3 className="text-3xl p-2 ">3.  How does the private route work??</h3>
+      <div className="mt-16  rounded  w-[80%] mx-auto p-6">
+        <h3 className="text-2xl md:text-3xl p-2 font-bold">3.  How does the private route work??</h3>
 
         <p className="mt-6 text-lg">
         Private Routes in React Router (also called Protected Routes) require a user being authorized to visit a route (read: page). So if a user is not authorized for a specific page, they cannot access it. The most common example is authentication in a React application where a user can only access the protected pages when they are authorized (which means in this case being authenticated). Authorization goes beyond authentication though. For example, a user can also have roles and permissions which give a user access to specific areas of the application.

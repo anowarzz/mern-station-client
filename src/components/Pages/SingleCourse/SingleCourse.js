@@ -13,7 +13,7 @@ const{title, price, image, description, instructor, courseDuration, id} = newCou
 
     return (
        
- <div className='bg-gray-100 pt-4'>
+ <div className='bg-gray-100  dark:text-white pt-4'>
               
 <div  class="relative p-6 mt-12 w-[90%] lg:w-[70%] mx-auto bg-white rounded-lg border-2 border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
    <div className='flex flex-col justify-center items-center gap-3'>
