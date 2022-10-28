@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class FAQ extends Component {
     render() {
         return (
-            <div className='w-[80%] mx-auto mt-12'>
+            <div className='w-[90%] md:w-[80%] mx-auto mt-12'>
               <Accordion>
   <Accordion.Panel>
     <Accordion.Title>

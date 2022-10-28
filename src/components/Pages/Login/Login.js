@@ -14,7 +14,7 @@ const facebookProvider = new FacebookAuthProvider();
 
 const Login = () => {
 
-const{user, setUser, logIn, googleLogIn, githubLogIn, facebookLogIn} = useContext(AuthContext);
+const{user, setUser, logIn, googleLogIn, githubLogIn, facebookLogIn,passwordReset} = useContext(AuthContext);
 
 
 
@@ -62,6 +62,27 @@ logIn(email, password)
 
 })
 }
+
+
+
+// User Password Reset
+const sendPasswordResetEmail = () => {
+    const email = loginInfo.email
+
+
+  if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
+      toast.error("Please Provide a valid email to reset your password")
+      return
+   }
+   else{
+    passwordReset(email)
+    toast.success("Password Reset Email Sent.Please Check Your Email")
+    .then(() => {})
+    .catch(error => console.error(error))
+   }
+}
+
+
 
 // Login With Google Account
 const googleLogInHandler = () => {
@@ -175,7 +196,9 @@ const handleLoginPassword = (event) => {
                     </div>
 
 			<div className="flex justify-end  text-gray-800">
-				<Link >Forgot Password?</Link>
+				<button onClick={sendPasswordResetEmail} >
+                Forgot Password?
+                </button>
 		</div>
 		<button type='submit' className="block w-full p-3 text-center rounded-sm  hover:bg-teal-400 hover:text-black text-white bg-black">Login</button>
 	</form>

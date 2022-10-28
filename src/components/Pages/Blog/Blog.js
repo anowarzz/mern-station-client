@@ -4,7 +4,7 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <div className="h-full pb-12">
+    <div className="h-full w-[95%] md:w-[80%] mx-auto pb-12 border-2 mt-8 shadow-lg rounded">
       <h1 className="text-4xl font-bold text-center pt-8 pb-10 ">
         Firebase Authentication 
       </h1>
