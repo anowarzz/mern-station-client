@@ -38,7 +38,7 @@ const{title, price, image, description, instructor, courseDuration, id} = newCou
                 <h4 className='text-lg md:text-xl font-semibold bg-teal-400 px-2 py-1 rounded-xl'><span className='hidden md:inline'>Course</span> Duration : {courseDuration}</h4>
             </div>
 
-    <p class="text-lg font-semibold text-gray-700 dark:text-gray-400 md:px-8 mt-10">{description}</p>
+    <p class="text-lg font-semibold text-gray-700 dark:text-white md:px-8 mt-10">{description}</p>
 
 
   <div className='text-center my-5'>

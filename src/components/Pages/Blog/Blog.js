@@ -21,7 +21,7 @@ const Blog = () => {
       </div>
 
       <div className="mt-16  rounded  w-[80%] mx-auto p-6">
-        <h3 className="text-2xl md:text-3xl p-2 font-bold">2. Why Do We Use Firebase ? What other options do you have to implement authentication? </h3>
+        <h3 className="text-2xl md:text-3xl p-2 font-bold">2. Why Do We Use Firebase ? <br /> What other options do you have to implement authentication? </h3>
 
         <p className="mt-6 text-lg">
         Firebase is a software development platform offered by Google. It helps to quickly build web applications without managing infrastructure. Before we discuss the pros and cons of using Firebase, let’s cover its best features. Basically, it consists of dozens of helpful services inside, including Authenticaton, Hosting, Cloud Storage.
@@ -37,7 +37,7 @@ const Blog = () => {
       </div>
 
       <div className="mt-16 rounded w-[80%] mx-auto p-6">
-        <h3 className="text-2xl md:text-3xl p-2 font-bold ">3. What is Node? How does Node work? ? </h3>
+        <h3 className="text-2xl md:text-3xl p-2 font-bold ">3. What is Node? How Does Node work? ? </h3>
 
         <p className="mt-6 text-lg">
         Node.js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client's browser. Ryan Dahl developed it in 2009, and its latest iteration, version 15.14, was released in April 2021. Developers use Node.js to create server-side web applications, and it is perfect for data-intensive applications since it uses 
