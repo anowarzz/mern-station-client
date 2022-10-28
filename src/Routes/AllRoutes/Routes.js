@@ -8,6 +8,7 @@ import FAQ from "../../components/Pages/FAQ/FAQ";
 import Home from "../../components/Pages/Home/Home";
 import Login from "../../components/Pages/Login/Login";
 import Register from "../../components/Pages/Register/Register";
+import SingleCourse from "../../components/Pages/SingleCourse/SingleCourse";
 import Main from "../../layout/Main";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
@@ -32,8 +33,13 @@ export const routes = createBrowserRouter([
             },
             {
                 path:'/courses',
-                loader: () => fetch('http://localhost:5000/course-list'),
+                loader: () => fetch('https://mern-station.vercel.app/courses'),
                 element: <Courses />
+            },
+            {
+                path:'/course/:id',
+                element: <SingleCourse />,
+                loader: ({params}) => (`https://mern-station.vercel.app/${params.id}`)
             },
             {
                 path: '/login',

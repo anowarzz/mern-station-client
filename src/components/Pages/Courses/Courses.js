@@ -7,7 +7,7 @@ const Courses = () => {
 const [courseNames, setCourseNames] = useState([]);
 
 useEffect(() => {
-    fetch('http://localhost:5000/course-names')
+    fetch('https://mern-station.vercel.app/course-titles')
     .then(res => res.json())
     .then(data => setCourseNames(data))
 },[])
@@ -24,7 +24,7 @@ useEffect(() => {
 
   <div className='sticky top-10'>
   {
-        courseNames.map(course => <h3 className='text-2xl mt-4 text-center hover:bg-indigo-600 text-white tracking-wide bg-[#032D6B] ' key={course.id}>
+        courseNames.map(course => <h3 className='text-2xl mt-4 text-center hover:bg-teal-400 hover:text-black text-white tracking-wide bg-[#032D6B] ' key={course.id}>
             <Link > 
             {course.title}
             </Link>

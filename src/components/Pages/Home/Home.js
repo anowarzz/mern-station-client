@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import hero from "../../../assets/web-dev.png";
+import Slider from "../Slider/Slider";
+
 
 const Home = () => {
+
+ 
   return (
     <div>
       <div className="mb-8">

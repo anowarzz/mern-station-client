@@ -129,11 +129,19 @@ const Header = () => {
                 </button>
               </>
             ) : (
+             <>
               <NavLink to="/login" className="text-lg">
                 <button className="bg-black text-white py-1 px-6  hover:bg-teal-400 hover:text-black">
                   Login
                 </button>
               </NavLink>
+
+              <NavLink to="/register" className="text-lg">
+                <button className="bg-black text-white py-1 px-6  hover:bg-teal-400 hover:text-black">
+                  Register
+                </button>
+              </NavLink>
+             </>
             )}
           </div>
         </Navbar.Collapse>
