@@ -125,7 +125,7 @@ const handleLoginPassword = (event) => {
 
 
     return (
-       <div className='flex justify-center items-center py-6'>
+       <div className='flex justify-center items-center py-6 bg-gray-100'>
          <div className="w-[90%] mx-auto max-w-md p-8 space-y-3 rounded  text-black shadow-2xl bg-slate-300">
 	<h1 className="text-2xl font-bold text-center mt-3 mb-6">Login</h1>
 	<form  onSubmit={handleUserLogin} action="" className="space-y-6 ng-untouched ng-pristine ng-valid">

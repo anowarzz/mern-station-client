@@ -1,5 +1,6 @@
 import { Card } from "flowbite-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CourseDetails = ({course}) => {
   const { title, image, description, courseDuration, price } = course;
@@ -18,7 +19,10 @@ const CourseDetails = ({course}) => {
             <h5 className="text-lg font-bold">Total Duration : {courseDuration}</h5>
 
 		</div>
-		<button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-[#03396b] text-gray-50 hover:bg-teal-400 hover:text-black">Course Details</button>
+    
+		<Link to = {`/courses/${course.id}`}>
+        <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-[#03396b] text-gray-50 hover:bg-teal-400 hover:text-black">Course Details</button>
+        </Link>
 	</div>
 </div>
 

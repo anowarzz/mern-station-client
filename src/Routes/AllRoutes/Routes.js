@@ -33,13 +33,12 @@ export const routes = createBrowserRouter([
             },
             {
                 path:'/courses',
-                loader: () => fetch('https://mern-station.vercel.app/courses'),
                 element: <Courses />
             },
             {
-                path:'/course/:id',
+                path:'/courses/:id',
                 element: <SingleCourse />,
-                loader: ({params}) => (`https://mern-station.vercel.app/${params.id}`)
+                loader: ({params}) => fetch(`https://mern-station.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/login',

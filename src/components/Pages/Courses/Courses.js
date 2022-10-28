@@ -4,16 +4,15 @@ import { Link, useLoaderData } from 'react-router-dom';
 import CourseDetails from '../CourseDetails/CourseDetails';
 
 const Courses = () => {
-const [courseNames, setCourseNames] = useState([]);
+const [courses, setCourses] = useState([]);
 
 useEffect(() => {
-    fetch('https://mern-station.vercel.app/course-titles')
+    fetch('https://mern-station.vercel.app/courses')
     .then(res => res.json())
-    .then(data => setCourseNames(data))
+    .then(data => setCourses(data))
 },[])
 
 
-    const courseList = useLoaderData();
     
     return (
        <div className='grid md:grid-cols-5 gap-5 px-6'>
@@ -24,7 +23,7 @@ useEffect(() => {
 
   <div className='sticky top-10'>
   {
-        courseNames.map(course => <h3 className='text-2xl mt-4 text-center hover:bg-teal-400 hover:text-black text-white tracking-wide bg-[#032D6B] ' key={course.id}>
+        courses.map(course => <h3 className='text-2xl mt-4 text-center hover:bg-teal-400 hover:text-black text-white tracking-wide bg-[#032D6B] ' key={course.id}>
             <Link > 
             {course.title}
             </Link>
@@ -38,7 +37,7 @@ useEffect(() => {
 
 <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 '>
 {   
-courseList.map(course => <CourseDetails key={course.id} course={course} /> )
+courses.map(course => <CourseDetails key={course.id} course={course} /> )
 }  
 </div>
 
