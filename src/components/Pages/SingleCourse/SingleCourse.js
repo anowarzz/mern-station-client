@@ -3,10 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useLoaderData } from 'react-router-dom';
 import React from "react";
 import Pdf from "react-to-pdf";
+import toast from 'react-hot-toast';
 
 
 
 const ref = React.createRef();
+const options = {
+  orientation: 'portrait',
+  unit: 'in',
+  format: [25, 30]
+};
 
 
 const SingleCourse = () => {
@@ -27,10 +33,11 @@ const{title, price, image, description, instructor, courseDuration, id} = newCou
    <div className='flex flex-col lg:gap-4 lg:flex-row justify-center'>
    <h3 class=" text-center mb-2 text-2xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">Course Title : {title} </h3>
    
-   {/* <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none font-mono rounded-full text-sm px-4 py-1 md:py-0 text-center mr-2 mb-2"><span className='text-sm'>Course PDF <FontAwesomeIcon icon={faFilePdf}/>  </span></button> */}
 
-
-   <Pdf targetRef={ref} filename="course-details.pdf">
+   <Pdf targetRef={ref} filename="course-details.pdf" options={options} onComplete={() => {
+    toast.success("Course Pdf Downloaded")
+   }} >
+    
           {({ toPdf }) => 
           
           <button type="button" onClick={toPdf} className='text-white bg-red-700 hover:bg-red-800 focus:outline-none font-mono rounded-full text-sm px-4 py-1 md:py-0 text-center mr-2 mb-2'>Course Pdf <FontAwesomeIcon icon={faFilePdf}/> </button>}
