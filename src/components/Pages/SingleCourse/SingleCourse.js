@@ -1,6 +1,13 @@
 import { faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useLoaderData } from 'react-router-dom';
+import React from "react";
+import Pdf from "react-to-pdf";
+
+
+
+const ref = React.createRef();
+
 
 const SingleCourse = () => {
 
@@ -13,21 +20,30 @@ const{title, price, image, description, instructor, courseDuration, id} = newCou
 
     return (
        
- <div className='bg-gray-100  dark:text-white pt-4'>
+ <div className='bg-gray-100  dark:text-white pt-4' ref={ref}>
               
 <div  class="relative p-6 mt-12 w-[90%] lg:w-[70%] mx-auto bg-white rounded-lg border-2 border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
    <div className='flex flex-col justify-center items-center gap-3'>
    <div className='flex flex-col lg:gap-4 lg:flex-row justify-center'>
    <h3 class=" text-center mb-2 text-2xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">Course Title : {title} </h3>
    
-   <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none font-mono rounded-full text-sm px-4 py-1 md:py-0 text-center mr-2 mb-2"><span className='text-sm'>Course PDF <FontAwesomeIcon icon={faFilePdf}/>  </span></button>
+   {/* <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none font-mono rounded-full text-sm px-4 py-1 md:py-0 text-center mr-2 mb-2"><span className='text-sm'>Course PDF <FontAwesomeIcon icon={faFilePdf}/>  </span></button> */}
+
+
+   <Pdf targetRef={ref} filename="course-details.pdf">
+          {({ toPdf }) => 
+          
+          <button type="button" onClick={toPdf} className='text-white bg-red-700 hover:bg-red-800 focus:outline-none font-mono rounded-full text-sm px-4 py-1 md:py-0 text-center mr-2 mb-2'>Course Pdf <FontAwesomeIcon icon={faFilePdf}/> </button>}
+
+        </Pdf>
+
 
    </div>
     <img src={image} alt="" className='w-96 border-4 bg-gray-200' />
    </div>
 
        
-            <div  className='flex flex-col justify-center items-center mt-8 gap-2 '>
+            <div  className='flex flex-col justify-center items-center mt-8 gap-2'>
             <h5 className='font-semibold text-xl'>Instructor : {instructor.name}</h5>
             <img src={instructor?.photo} alt="" className='rounded-full h-16 w-16 object-cover'/>
             </div>
@@ -43,7 +59,7 @@ const{title, price, image, description, instructor, courseDuration, id} = newCou
 
   <div className='text-center my-5'>
   <Link to= {`/checkout/${newCourse.id}`}>
-        <button type="button" className="text-center p-3 font-semibold tracking-wide rounded-md bg-[#03396b] text-gray-50 hover:bg-teal-400 hover:text-black">Get Premium Access $</button>
+        <button type="button" className="text-center p-3 font-semibold tracking-wide rounded-md bg-[#03396b] dark:bg-[#0c7be2] text-gray-50 hover:bg-teal-400 hover:text-black">Get Premium Access $</button>
         </Link>
 
   </div>
