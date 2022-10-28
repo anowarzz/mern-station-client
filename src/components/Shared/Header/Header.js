@@ -81,15 +81,6 @@ const Header = () => {
             </NavLink>
 
             <NavLink
-              to="/checkout"
-              className={({ isActive }) =>
-                isActive ? "text-lg py-1 px-3 text-blue-500 hover:bg-[#03396b] hover:text-white" : "text-lg py-1 hover:bg-[#03396b] hover:text-white px-3"
-              }
-            >
-              Checkout
-            </NavLink>
-
-            <NavLink
               onClick={handleTheme}
               className="text-lg py-1  border-black hover:text-white md:px-2 mb-2 md:mb-0 hover:bg-[#03396b] px-3"
             >

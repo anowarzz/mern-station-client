@@ -35,7 +35,7 @@ const{title, price, image, description, instructor, courseDuration, id} = newCou
 
 
   <div className='text-center my-5'>
-  <Link to = {`/courses/${newCourse.id}`}>
+  <Link to= {`/checkout/${newCourse.id}`}>
         <button type="button" className="text-center p-3 font-semibold tracking-wide rounded-md bg-[#03396b] text-gray-50 hover:bg-teal-400 hover:text-black">Get Premium Access $</button>
         </Link>
 
