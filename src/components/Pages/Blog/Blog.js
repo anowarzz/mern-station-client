@@ -47,7 +47,7 @@ const Blog = () => {
         <p className="mt-6 text-lg">
             Node Working Procedure  <FontAwesomeIcon icon={faNetworkWired} /> 
         </p>
-        <p>
+       
     <ol className="text-lg">
         <li>
         1. Node.js maintains a limited thread pool to serve requests.
@@ -65,7 +65,7 @@ const Blog = () => {
         6. The event loop tracks blocking requests and places them in the queue once the blocking task is processed. This is how it maintains its non-blocking nature.
         </li>
     </ol>
-        </p>
+     
       </div>
 
 
