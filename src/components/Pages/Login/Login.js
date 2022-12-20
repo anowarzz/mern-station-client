@@ -97,7 +97,7 @@ const googleLogInHandler = () => {
     })
     .catch(error => {
         console.error(error)
-        (setError(error.message))}
+        setError(error.message)}
         )
  
      };

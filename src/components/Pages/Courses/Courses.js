@@ -5,17 +5,29 @@ import CourseDetails from '../CourseDetails/CourseDetails';
 
 const Courses = () => {
 const [courses, setCourses] = useState([]);
+const [loading, setLoading] = useState(false)
 
 useEffect(() => {
+    setLoading(true)
     fetch('https://mern-station.vercel.app/courses')
     .then(res => res.json())
-    .then(data => setCourses(data))
+    .then(data => {
+        setCourses(data)
+        setLoading(false)
+    })
 },[])
 
+// if(loading){
+//     <p>Loading...</p>
+// }
 
     
     return (
        <div className='grid md:grid-cols-5 gap-5 px-6'>
+        {
+            loading && <p>Loading....</p>
+        }
+
 
 
 <div className='relative'>
